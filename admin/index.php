@@ -1,3 +1,27 @@
+<?php include "../includes/db.php" ?>
+
+<?php
+
+//print_r($_POST);
+
+if (isset($_POST['login-do'])) {
+
+    $u_username = $_POST['username'];
+    $u_password = $_POST['password'];
+
+    $login_query = "SELECT `password`,`role` FROM users WHERE `username` = '$username'";
+    $login_query_do = mysqli_query($connection, $login_query);
+
+    while ($row = mysqli_fetch_array($login_query_do)){
+        $d_pass = $row['password'];
+        $d_role = $row['role'];
+    }
+
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +35,14 @@
     <div id="login-panel">
         <img src="../images/logo.jpg" alt="" srcset="">
 
-        <form action="">
+        <form action="" method="post">
             <label for="login-username">FELHASZNÁLÓNÉV:</label>
-            <input type="text" id="login-username">
+            <input type="text" name="username" id="login-username">
 
             <label for="login-password">JELSZÓ:</label>
-            <input type="text" id="login-password">
+            <input type="text" name="password" id="login-password">
 
-            <button type="submit">Bejelentkezés</button>
+            <button name="login-do" type="submit">Bejelentkezés</button>
         </form>
 
     </div>
