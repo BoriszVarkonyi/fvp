@@ -9,7 +9,7 @@
 </head>
 <body id="login-screen">
     <div id="login-panel">
-        <img src="../images/logo.jpg" alt="" srcset="">
+        <img src="../assets/images/logo.jpg">
 
         <form action="">
             <label for="login-username">FELHASZNÁLÓNÉV:</label>
@@ -18,7 +18,7 @@
             <label for="login-password">JELSZÓ:</label>
             <input type="text" id="login-password">
 
-            <button type="submit">Bejelentkezés</button>
+            <button type="submit" id="login-submit">Bejelentkezés</button>
         </form>
 
     </div>
