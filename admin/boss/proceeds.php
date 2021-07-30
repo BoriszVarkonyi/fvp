@@ -1,5 +1,10 @@
+<?php include "../../includes/db.php" ?>
+<?php ob_start(); ?>
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +12,7 @@
     <link rel="stylesheet" href="/../css/base-style.css">
     <title>Bevételezések</title>
 </head>
+
 <body class="storage">
     <header>
         <p>BOSS</p>
@@ -35,15 +41,35 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <p>Dátum</p>
-                        </td>
-                    </tr>
+
+                    <?php
+
+                    $query = "SELECT * FROM `bevetelezesek`";
+                    $query_do = mysqli_query($connection, $query);
+
+                    while ($row = mysqli_fetch_array($query_do)) {
+
+                        $id = $row['id'];
+                        $datum = $row['datum'];
+
+                    ?>
+                        <tr onclick="window.location.href='new-proceed.php?id=<?php echo $id; ?>&date=<?php echo $datum ?>'">
+                            <td>
+                                <p><?php echo $datum ?></p>
+                            </td>
+                        </tr>
+
+                    <?php
+                    }
+
+                    ?>
+
+
                 </tbody>
             </table>
         </div>
     </main>
     <script src="/../js/main-script.js"></script>
 </body>
+
 </html>

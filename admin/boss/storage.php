@@ -4,7 +4,13 @@
 
 <?php
 
+if (isset($_POST['ujbevet'])) {
+    
+    $date = $_POST['datum'];
 
+    header("Location: new-proceed.php?id=new&date=$date");
+
+}
 
 ?>
 
