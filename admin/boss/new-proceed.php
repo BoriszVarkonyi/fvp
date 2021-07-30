@@ -65,6 +65,6 @@
             </table>
         </form>
     </main>
-    <script src="main-script.js"></script>
+    <script src="/../js/main-script.js"></script>
 </body>
 </html>

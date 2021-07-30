@@ -33,7 +33,7 @@
                 </form>
 
                 <a class="page-button primary" href="material.php">Új alapanyag</a>
-                <a class="page-button secondary" href="proceeds.php">Bevitelezések</a>
+                <a class="page-button secondary" href="proceeds.php">Bevételezések</a>
             </div>
         </div>
         <div id="main-content">

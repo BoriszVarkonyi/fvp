@@ -22,8 +22,8 @@
         <div id="main-top">
             <p id="page-title">Termékek</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
+                <button class="page-button primary">Új TERMÉK</button>
+                <a class="page-button secondary" href="categories.php">Kategóriák</a>
                 <button class="page-button secondary">Vissza</button>
             </div>
         </div>
@@ -32,13 +32,13 @@
                 <thead>
                     <tr>
                         <th>
-                            <p>Oszlop 1</p>
+                            <p>TERMÉK</p>
                         </th>
                         <th>
-                            <p>Oszlop 2</p>
+                            <p>KATEGÓRIA</p>
                         </th>
                         <th>
-                            <p>Oszlop 3</p>
+                            <p>ÁR</p>
                         </th>
                     </tr>
                 </thead>
@@ -69,6 +69,6 @@
             </table>
         </div>
     </main>
-    <script src="main-script.js"></script>
+    <script src="/../js/main-script.js"></script>
 </body>
 </html>
