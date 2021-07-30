@@ -22,53 +22,49 @@
         <div id="main-top">
             <p id="page-title">Új bevét</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
+                <button type="submit" form="main-content" class="page-button primary">Mentés</button>
                 <button class="page-button secondary">Vissza</button>
             </div>
         </div>
-        <div id="main-content">
-            <table>
+        <form id="main-content">
+            <table class="no-interaction">
                 <thead>
                     <tr>
                         <th>
-                            <p>Oszlop 1</p>
+                            <p>ALAPANYAG</p>
                         </th>
                         <th>
-                            <p>Oszlop 2</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 3</p>
+                            <p>MENNYISÉG</p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
-                            <p>Sor 1</p>
+                            <p>Neve</p>
                         </td>
                         <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
+                            <div>
+                                <input type="number" name="" id="">
+                                <p>kg</p>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Sor 2</p>
+                            <p>Neve 2</p>
                         </td>
                         <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
+                            <div>
+                                <input type="number" name="" id="">
+                                <p>db</p>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </form>
     </main>
-    <script src="main-script.js"></script>
+    <script src="/../js/main-script.js"></script>
 </body>
 </html>

@@ -1,5 +1,16 @@
+<?php include "../../includes/db.php" ?>
+<?php ob_start(); ?>
+<?php session_start(); ?>
+
+<?php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +18,7 @@
     <link rel="stylesheet" href="/../css/base-style.css">
     <title>Készlet</title>
 </head>
+
 <body class="storage">
     <header>
         <p>BOSS</p>
@@ -22,9 +34,18 @@
         <div id="main-top">
             <p id="page-title">Készlet</p>
             <div id="page-buttons">
-                <a class="page-button primary" href="new-proceed.php">Új bevét</a>
+
+                <form id="new-proceed-form" method="post" class="page-button-wrapper">
+                    <button class="page-button primary" id="new-proceed-button" type="button" onclick="newProceedToggle()">Új bevét</button>
+                    <button class="page-button secondary hidden" id="new-proceed-back-button" type="button" onclick="newProceedToggle()">Vissza</button>
+                    <div>
+                        <input type="date" name="datum" id="new-proceed-date" class="hidden">
+                    </div>
+                    <button class="page-button primary hidden" name="ujbevet" id="new-proceed-submit-button" type="submit">Új bevét</button>
+                </form>
+
                 <a class="page-button primary" href="material.php?material_id=new">Új alapanyag</a>
-                <a class="page-button secondary" href="proceeds.php">Bevitelezések</a>
+                <a class="page-button secondary" href="proceeds.php">Bevételezések</a>
             </div>
         </div>
         <div id="main-content">
@@ -40,18 +61,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr onclick="window.location.href='material.php'">
-                        <td>
-                            <p>neve</p>
-                        </td>
-                        <td>
-                            <p>{memmyniség} {mértékegység}</p>
-                        </td>
-                    </tr>
+
+                    <?php
+
+                    $query = "SELECT * FROM `keszlet`";
+                    $query_do = mysqli_query($connection, $query);
+
+                    while ($row = mysqli_fetch_assoc($query_do)) {
+
+                        $id = $row['id'];
+                        $nev = $row['anyagnev'];
+                        $mennyiseg = $row['mennyiseg'];
+                        $mertekegyseg = $row['mertekegyseg'];
+
+                    ?>
+
+
+                        <tr onclick="window.location.href='material.php?material_id=<?php echo $id; ?>'">
+                            <td>
+                                <p><?php echo $nev ?></p>
+                            </td>
+                            <td>
+                                <p><?php echo $mennyiseg . " " . $mertekegyseg ?></p>
+                            </td>
+                        </tr>
+
+                    <?php
+                    }
+
+                    ?>
                 </tbody>
             </table>
         </div>
     </main>
-    <script src="main-script.js"></script>
+    <script src="/../js/main-script.js"></script>
 </body>
+
 </html>

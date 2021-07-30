@@ -18,6 +18,19 @@ if (isset($_POST['save_material'])) {
         $query_do = mysqli_query($connection, $query);
         header("Location: storage.php");
     }
+    else{
+        $query = "UPDATE `keszlet` SET `anyagnev`='$nev',`mennyiseg`=$mennyiseg,`mertekegyseg`='$mertekegyseg' WHERE `id` = '$id'";
+        $query_do = mysqli_query($connection, $query);
+        header("Location: storage.php");
+    }
+
+}
+
+if (isset($_POST['torles'])) {
+    
+    $query = "DELETE FROM `keszlet` WHERE id = '$id'";
+    $query_do = mysqli_query($connection, $query);
+    header("Location: storage.php");
 
 }
 
@@ -31,7 +44,6 @@ if ($id != 'new') {
         $a_mennyiseg = $row['mennyiseg'];
         $a_mertekegyseg = $row['mertekegyseg'];
     }
-
 }
 
 ?>
@@ -61,7 +73,7 @@ if ($id != 'new') {
             <p id="page-title">Alapanyag</p>
             <div id="page-buttons">
                 <button type="submit" form="material-form" name="save_material" class="page-button primary">Hozzáadás</button>
-                <button class="page-button secondary">Törlés</button>
+                <form action="" method="post"><button type="submit" name="torles" class="page-button secondary">Törlés</button></form>
                 <button class="page-button secondary">Vissza</button>
             </div>
         </div>
@@ -78,6 +90,6 @@ if ($id != 'new') {
             </form>
         </div>
     </main>
-    <script src="main-script.js"></script>
+    <script src="/../js/main-script.js"></script>
 </body>
 </html>

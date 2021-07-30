@@ -166,18 +166,72 @@ label {
     padding: 5px 7px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="date"] {
 	background-color: white;
 	box-sizing: border-box;
     border: 2px solid var(--c-primary);
 	margin: 3px 0 30px;
-	width: 250px;
 	height: 37px;
 	padding: 0 10px 0 35px;
 	border-radius: 5px;
 	background-repeat: no-repeat;
 	background-position: 10px;
 	text-align: start;
+}
+
+input[type="text"] {
+	width: 250px;
+}
+
+input[type="date"] {
+    width: 220px;
+    padding: 0 10px !important;
+    text-align: center !important;
+}
+
+input[type="date"].hidden {
+    display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	appearance: none;
+  	margin: 0;
+}
+
+input[type="number"] {
+	background-color: white;
+	box-sizing: border-box;
+    border: 2px solid var(--c-primary);
+	margin: 3px 0 30px;
+	width: 40px;
+	height: 37px;
+	padding: 0 10px 0 35px;
+	border-radius: 5px;
+	background-repeat: no-repeat;
+	background-position: 10px;
+    text-align: center;
+}
+
+table input[type="number"] {
+	margin: 0 !important;
+    height: 30px !important;
+    padding: 0 !important;
+}
+
+@supports ((-webkit-appearance: textfield) or (-moz-appearance: textfield) or (appearance: textfield)) {
+	input[type="number"] {
+		-webkit-appearance: textfield;
+		-moz-appearance: textfield;
+		appearance: textfield;
+	}
+}
+
+@supports (-moz-appearance: textfield) {
+	input[type="number"] {
+		-moz-appearance: textfield
+	}
 }
 
 header {
@@ -252,10 +306,40 @@ main {
     gap: 10px;
 }
 
+.page-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.page-button-wrapper.opened {
+    width: 220px;
+}
+
 .page-button {
     color: white;
     padding: 5px;
     line-height: 1.2;
+    text-align: center;
+}
+
+.page-button.hidden {
+    display: none;
+}
+
+.page-button-wrapper > .page-button {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.page-button-wrapper > div {
+    position: absolute;
+    top: 100%;
+}
+
+#new-proceed-submit-button {
+    position: absolute;
+    top: calc(100% + 42px);
 }
 
 .page-button.primary {
@@ -270,7 +354,7 @@ main {
 #main-content {
     box-sizing: border-box;
     width: 100%;
-    padding: 50px;
+    padding: 60px 50px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -317,11 +401,11 @@ table.xsmall p {
 }
 
 /* Cursor stays the same on hover, no hover effect */
-table.no_interaction tr {
+table.no-interaction tr {
 	cursor: default !important;
 }
 
-table.no_interaction tr:hover {
+table.no-interaction tr:hover {
 	-webkit-filter: none !important;
 	filter: none !important;
 }
@@ -336,7 +420,7 @@ thead {
 }
 
 /* Makes Table Header elements not sticky */
-thead.no_stick th {
+thead.no-stick th {
 	position: relative !important;
 }
 
@@ -358,7 +442,7 @@ thead tr:hover {
 tbody {}
 
 /* Selected rows are not scaled up visually */
-tbody.no_scale tr.selected {
+tbody.no-scale tr.selected {
 
 }
 
@@ -424,6 +508,11 @@ tr.bold {
 
 td {
     /*border: 1.5px solid var(--c-lightgray);*/
+}
+
+td > div {
+    display: inline-flex;
+    align-items: center;
 }
 
 /* Makes the text bold */

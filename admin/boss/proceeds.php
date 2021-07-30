@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/../css/base-style.css">
-    <title>Bevitelezések</title>
+    <title>Bevételezések</title>
 </head>
 <body class="storage">
     <header>
@@ -20,10 +20,8 @@
     </nav>
     <main>
         <div id="main-top">
-            <p id="page-title">Bevitelezések</p>
+            <p id="page-title">Bevételezések</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
                 <button class="page-button secondary">Vissza</button>
             </div>
         </div>
@@ -32,34 +30,20 @@
                 <thead>
                     <tr>
                         <th>
-                            <p>ALAPANYAG</p>
-                        </th>
-                        <th>
-                            <p>MENNYISÉG</p>
+                            <p>DÁTUM</p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
-                            <p>neve</p>
-                        </td>
-                        <td>
-                            <p>{memmyniség} {mértékegység}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>neve</p>
-                        </td>
-                        <td>
-                            <p>{memmyniség} {mértékegység}</p>
+                            <p>Dátum</p>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </main>
-    <script src="main-script.js"></script>
+    <script src="/../js/main-script.js"></script>
 </body>
 </html>
