@@ -201,7 +201,11 @@ input[type="date"] {
     text-align: center !important;
 }
 
-input[type="date"].hidden {
+#page-button-input {
+    width: 220px;
+}
+
+input.hidden {
     display: none;
 }
 
@@ -342,7 +346,7 @@ main {
     top: 100%;
 }
 
-#new-proceed-submit-button {
+#page-button-submit-button {
     position: absolute;
     top: calc(100% + 42px);
 }
