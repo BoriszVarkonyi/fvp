@@ -22,9 +22,9 @@
         <div id="main-top">
             <p id="page-title">Készlet</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
-                <button class="page-button secondary">Vissza</button>
+                <a class="page-button primary" href="new-proceed.php">Új bevét</a>
+                <a class="page-button primary" href="material.php">Új alapanyag</a>
+                <a class="page-button secondary" href="proceeds.php">Bevitelezések</a>
             </div>
         </div>
         <div id="main-content">
@@ -32,37 +32,20 @@
                 <thead>
                     <tr>
                         <th>
-                            <p>Oszlop 1</p>
+                            <p>ALAPANYAG</p>
                         </th>
                         <th>
-                            <p>Oszlop 2</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 3</p>
+                            <p>MENNYISÉG</p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr onclick="window.location.href='material.php'">
                         <td>
-                            <p>Sor 1</p>
+                            <p>neve</p>
                         </td>
                         <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
+                            <p>{memmyniség} {mértékegység}</p>
                         </td>
                     </tr>
                 </tbody>

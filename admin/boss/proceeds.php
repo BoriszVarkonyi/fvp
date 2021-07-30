@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/../css/base-style.css">
-    <title>Bevétek</title>
+    <title>Bevitelezések</title>
 </head>
 <body class="storage">
     <header>
@@ -20,7 +20,7 @@
     </nav>
     <main>
         <div id="main-top">
-            <p id="page-title">Bevétek</p>
+            <p id="page-title">Bevitelezések</p>
             <div id="page-buttons">
                 <button class="page-button primary">Új kategória</button>
                 <button class="page-button secondary">Törlés</button>
@@ -32,37 +32,28 @@
                 <thead>
                     <tr>
                         <th>
-                            <p>Oszlop 1</p>
+                            <p>ALAPANYAG</p>
                         </th>
                         <th>
-                            <p>Oszlop 2</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 3</p>
+                            <p>MENNYISÉG</p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
-                            <p>Sor 1</p>
+                            <p>neve</p>
                         </td>
                         <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
+                            <p>{memmyniség} {mértékegység}</p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Sor 2</p>
+                            <p>neve</p>
                         </td>
                         <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
+                            <p>{memmyniség} {mértékegység}</p>
                         </td>
                     </tr>
                 </tbody>
