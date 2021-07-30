@@ -255,6 +255,7 @@ main {
 .page-button {
     color: white;
     padding: 5px;
+    line-height: 1.2;
 }
 
 .page-button.primary {
