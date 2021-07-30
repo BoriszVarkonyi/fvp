@@ -30,6 +30,8 @@
                     </div>
                     <button class="page-button primary hidden" name="ujbevet" id="page-button-submit-button" type="submit">Új kategória</button>
                 </form>
+
+                <a class="page-button secondary" href="products.php">Vissza</a>
             </div>
         </div>
         <form id="main-content">
