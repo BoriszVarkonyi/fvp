@@ -23,7 +23,7 @@
             <p id="page-title">Készlet</p>
             <div id="page-buttons">
 
-                <form id="new-proceed-form" class="page-button-wrapper">
+                <form id="new-proceed-form" class="page-button-wrapper" autocomplete="off">
                     <button class="page-button primary" id="new-proceed-button" type="button" onclick="newProceedToggle()">Új bevét</button>
                     <button class="page-button secondary hidden" id="new-proceed-back-button" type="button" onclick="newProceedToggle()">Vissza</button>
                     <div>

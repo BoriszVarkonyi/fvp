@@ -20,53 +20,92 @@
     </nav>
     <main>
         <div id="main-top">
-            <p id="page-title">Termék</p>
+            <p id="page-title">Termék nev vagy "Új termék" ha új!!!</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
+                <button class="page-button primary" type="submit" form="product-form">Mentés</button>
+
+                <form action="">
+                    <button class="page-button secondary" type="submit">Törlés</button>
+                </form>
+
                 <button class="page-button secondary">Vissza</button>
             </div>
         </div>
         <div id="main-content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            <p>Oszlop 1</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 2</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 3</p>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <form action="" id="product-form" class="center-form" autocomplete="off">
+                <div class="form-column">
+
+                    <p class="form-column-title">ADATOK</p>
+
+                    <label for="product-name">NÉV</label>
+                    <input type="text" name="" id="product-name">
+
+                    <label for="product-category">KATEGÓRIA</label>
+                    <div class="option_container">
+                        <input type="radio" name="product-category" id="product-category-" value="" checked/>
+                        <label for="product-category-">Amik hozá</label>
+                        <input type="radio" name="product-category" id="product-category-" value=""/>
+                        <label for="product-category-">vannak</label>
+                        <input type="radio" name="product-category" id="product-category-" value=""/>
+                        <label for="product-category-">adva</label>
+                    </div>
+
+                    <label for="product-price">ÁR / DARAB</label>
+                    <input type="number" name="" id="product-price">
+
+                    <label for="product-description">LEÍRÁS</label>
+                    <textarea name="" id="product-description" cols="20" rows="5"></textarea>
+
+                    <label for="product-picture">KÉP</label>
+                    <input type="file" name="" id="product-picture">
+
+                    <label for="product-visibility">WEBOLDAL LÁTHATÓSÁG</label>
+                    <div class="option_container">
+                        <input type="radio" name="product-visibility" id="product-visible" value="" checked/>
+                        <label for="product-visible">Látható</label>
+                        <input type="radio" name="product-visibility" id="product-not-visible" value=""/>
+                        <label for="product-not-visible">Nem látható</label>
+                    </div>
+
+                </div>
+
+                <div class="form-column">
+
+                    <p class="form-column-title">RECEPT</p>
+
+                    <label for="product-recipe-quantity">ENNYI DARAB</label>
+                    <input type="text" name="" id="product-recipe-quantity">
+
+                    <label for="product-recipe">ENNYI HOZZÁVALÓ</label>
+                    <table class="fixed no-interaction" id="product-recipe">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <p>ALAPANYAG</p>
+                                </th>
+                                <th>
+                                    <p>MENNYISÉG</p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>neve</p>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="number" name="" id="">
+                                        <p>kg</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </form>
         </div>
     </main>
     <script src="/../js/main-script.js"></script>

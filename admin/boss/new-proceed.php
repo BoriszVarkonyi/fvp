@@ -26,7 +26,7 @@
                 <button class="page-button secondary">Vissza</button>
             </div>
         </div>
-        <form id="main-content">
+        <form id="main-content" autocomplete="off">
             <table class="no-interaction">
                 <thead>
                     <tr>

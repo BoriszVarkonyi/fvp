@@ -28,7 +28,7 @@
             </div>
         </div>
         <div id="main-content">
-            <form action="" id="material-form">
+            <form action="" id="material-form" autocomplete="off">
                 <label for="material-name">NÉV</label>
                 <input type="text" placeholder="" id="material-name">
 
@@ -40,6 +40,6 @@
             </form>
         </div>
     </main>
-    <script src="/../js/main-script.js"></script>
+    <script src="main-script.js"></script>
 </body>
 </html>

@@ -12,10 +12,10 @@
         <img src="../assets/images/logo.jpg">
 
         <form action="">
-            <label for="login-username">FELHASZNÁLÓNÉV:</label>
+            <label for="login-username">FELHASZNÁLÓNÉV</label>
             <input type="text" id="login-username">
 
-            <label for="login-password">JELSZÓ:</label>
+            <label for="login-password">JELSZÓ</label>
             <input type="text" id="login-password">
 
             <button type="submit" id="login-submit">Bejelentkezés</button>

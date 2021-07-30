@@ -35,7 +35,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr onclick="window.location.href='new-proceed.php'">
                         <td>
                             <p>Dátum</p>
                         </td>
