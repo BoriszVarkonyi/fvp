@@ -23,7 +23,7 @@
             <p id="page-title">Készlet</p>
             <div id="page-buttons">
                 <a class="page-button primary" href="new-proceed.php">Új bevét</a>
-                <a class="page-button primary" href="material.php">Új alapanyag</a>
+                <a class="page-button primary" href="material.php?material_id=new">Új alapanyag</a>
                 <a class="page-button secondary" href="proceeds.php">Bevitelezések</a>
             </div>
         </div>

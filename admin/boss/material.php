@@ -1,3 +1,41 @@
+<?php include "../../includes/db.php" ?>
+<?php ob_start(); ?>
+<?php session_start(); ?>
+
+<?php
+
+$id = $_GET['material_id'];
+
+if (isset($_POST['save_material'])) {
+    
+    $nev = $_POST['nev'];
+    $mennyiseg = $_POST['mennyiseg'];
+    $mertekegyseg = $_POST['mertekegyseg'];
+
+
+    if ($id == 'new') {
+        $query = "INSERT INTO `keszlet`(`anyagnev`, `mennyiseg`, `mertekegyseg`) VALUES ('$nev',$mennyiseg,'$mertekegyseg')";
+        $query_do = mysqli_query($connection, $query);
+        header("Location: storage.php");
+    }
+
+}
+
+if ($id != 'new') {
+
+    $query = "SELECT * FROM `keszlet` WHERE `id` = '$id'";
+    $query_do = mysqli_query($connection, $query);
+
+    if ($row = mysqli_fetch_assoc($query_do)) {
+        $a_nev = $row['anyagnev'];
+        $a_mennyiseg = $row['mennyiseg'];
+        $a_mertekegyseg = $row['mertekegyseg'];
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,21 +60,21 @@
         <div id="main-top">
             <p id="page-title">Alapanyag</p>
             <div id="page-buttons">
-                <button type="submit" form="material-form" class="page-button primary">Hozzáadás</button>
+                <button type="submit" form="material-form" name="save_material" class="page-button primary">Hozzáadás</button>
                 <button class="page-button secondary">Törlés</button>
                 <button class="page-button secondary">Vissza</button>
             </div>
         </div>
         <div id="main-content">
-            <form action="" id="material-form">
+            <form action="material.php?material_id=<?php echo $id; ?>" id="material-form" method="post">
                 <label for="material-name">NÉV</label>
-                <input type="text" placeholder="" id="material-name">
+                <input type="text" placeholder="" value="<?php echo $termeknev = ($id != 'new') ? $a_nev : "" ?>" name="nev" id="material-name">
 
                 <label for="material-quantity">MENNYISÉG</label>
-                <input type="text" placeholder="" id="material-quantity">
+                <input type="text" placeholder="" value="<?php echo $termekmenny = ($id != 'new') ? $a_mennyiseg : "" ?>" name="mennyiseg" id="material-quantity">
 
                 <label for="material-unit">MÉRTÉKEGYSÉG</label>
-                <input type="text" placeholder="" id="material-unit">
+                <input type="text" placeholder="" value="<?php echo $termekmertek = ($id != 'new') ? $a_mertekegyseg : "" ?>" name="mertekegyseg" id="material-unit">
             </form>
         </div>
     </main>

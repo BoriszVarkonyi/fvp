@@ -5,11 +5,9 @@
 
 <?php
 
-//print_r($_POST);
+print_r($_SESSION);
 
 if (isset($_POST['login-do'])) {
-
-    session_destroy();
 
     $u_username = $_POST['username'];
     $u_password = $_POST['password'];
@@ -18,9 +16,9 @@ if (isset($_POST['login-do'])) {
     $login_query_do = mysqli_query($connection, $login_query);
 
     while ($row = mysqli_fetch_array($login_query_do)) {
-        echo $d_pass = $row['password'];
-        echo $role = $row['role'];
-        echo $shop_id = $row['bolt_id'];
+        $d_pass = $row['password'];
+        $role = $row['role'];
+        $shop_id = $row['bolt_id'];
     }
 
     if (mysqli_num_rows($login_query_do) != 0) {
@@ -28,6 +26,7 @@ if (isset($_POST['login-do'])) {
             if ($role == 1) {
                 $_SESSION['role'] = "karesz";
                 echo "OKE";
+                header("Location: boss/storage.php");
             } else if ($role == 2) {
                 $_SESSION['role'] = "uzem";
             } else if ($role == 3) {
