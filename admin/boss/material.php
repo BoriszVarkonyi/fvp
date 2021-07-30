@@ -78,7 +78,7 @@ if ($id != 'new') {
             </div>
         </div>
         <div id="main-content">
-            <form action="material.php?material_id=<?php echo $id; ?>" id="material-form" method="post">
+            <form autocomplete="off" action="material.php?material_id=<?php echo $id; ?>" id="material-form" method="post">
                 <label for="material-name">NÉV</label>
                 <input type="text" placeholder="" value="<?php echo $termeknev = ($id != 'new') ? $a_nev : "" ?>" name="nev" id="material-name">
 
@@ -90,6 +90,6 @@ if ($id != 'new') {
             </form>
         </div>
     </main>
-    <script src="/../js/main-script.js"></script>
+    <script src="main-script.js"></script>
 </body>
 </html>

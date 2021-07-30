@@ -22,9 +22,8 @@
         <div id="main-top">
             <p id="page-title">Termékek</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új TERMÉK</button>
+                <a class="page-button primary" href="product.php">Új termék</a>
                 <a class="page-button secondary" href="categories.php">Kategóriák</a>
-                <button class="page-button secondary">Vissza</button>
             </div>
         </div>
         <div id="main-content">

@@ -89,7 +89,7 @@ if (isset($_POST['save'])) {
                 <button class="page-button secondary">Vissza</button>
             </div>
         </div>
-        <form id="main-content" method="post">
+        <form id="main-content" method="post" autocomplete="off">
             <table class="no-interaction">
                 <thead>
                     <tr>
