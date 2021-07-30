@@ -21,3 +21,30 @@ function newProceedToggle() {
     input.classList.toggle("hidden")
 
 }
+
+function select(x) {
+    var selectedItem = x;
+
+    var input = selectedItem.parentNode.previousElementSibling;
+
+    var panel = selectedItem.parentNode;
+
+    input.value = selectedItem.innerText;
+
+    panel.classList.toggle("hidden")
+
+}
+
+function openSelect(x) {
+    var selectedItem = x;
+    var panel = selectedItem.nextElementSibling
+
+    panel.classList.remove("hidden")
+}
+
+function closeSelect(x) {
+    var selectedItem = x;
+    var panel = selectedItem.nextElementSibling
+
+    panel.classList.add("hidden")
+}

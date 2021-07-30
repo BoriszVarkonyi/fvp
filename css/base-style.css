@@ -788,3 +788,42 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	background: var(--c-darkgray);
 	border-color: var(--c-darkgray);
 }
+
+.file-upload {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 2px solid var(--c-primary);
+    padding: 25px 0;
+    margin: 3px 0 30px;
+}
+
+.select-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.select-wrapper > input {
+    margin-bottom: 3px !important;
+}
+
+.select-options {
+    width: 250px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 2px solid var(--c-primary);
+    background: var(--c-lightestgray);
+}
+
+.select-options.hidden {
+    display: none;
+}
+
+.select-options button {
+    width: 100%;
+    text-align: center;
+}

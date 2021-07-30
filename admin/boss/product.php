@@ -41,13 +41,16 @@
                     <input type="text" name="" id="product-name">
 
                     <label for="product-category">KATEGÓRIA</label>
-                    <div class="option_container">
-                        <input type="radio" name="product-category" id="product-category-" value="" checked/>
-                        <label for="product-category-">Amik hozá</label>
-                        <input type="radio" name="product-category" id="product-category-" value=""/>
-                        <label for="product-category-">vannak</label>
-                        <input type="radio" name="product-category" id="product-category-" value=""/>
-                        <label for="product-category-">adva</label>
+                    <div class="select-wrapper">
+                        <input type="text" name="" id="product-category" onfocus="openSelect(this)">
+                        <div class="select-options hidden">
+                            <button onclick="select(this)" type="button">Opció 1</button>
+                            <button onclick="select(this)" type="button">Opció 2</button>
+                            <button onclick="select(this)" type="button">Opció 3</button>
+                            <button onclick="select(this)" type="button">Opció 4</button>
+                            <button onclick="select(this)" type="button">Opció 5</button>
+                            <button onclick="select(this)" type="button">Opció 6</button>
+                        </div>
                     </div>
 
                     <label for="product-price">ÁR / DARAB</label>
@@ -57,7 +60,9 @@
                     <textarea name="" id="product-description" cols="20" rows="5"></textarea>
 
                     <label for="product-picture">KÉP</label>
-                    <input type="file" name="" id="product-picture">
+                    <div class="file-upload">
+                        <input type="file" name="" id="product-picture">
+                    </div>
 
                     <label for="product-visibility">WEBOLDAL LÁTHATÓSÁG</label>
                     <div class="option_container">
