@@ -5,7 +5,6 @@
 	--c-lightgray: rgb(221, 221, 221);
 	--c-lightergray: rgb(236, 236, 236);
 	--c-lightestgray: rgb(246, 246, 246);
-	--c-white: rgb(255, 255, 255);
 
     --c-primary: rgb(235, 28, 36);
 
@@ -30,7 +29,7 @@
 }
 
 body, html {	/* Gives placeholder background and default font */
-    background: var(--c-white);
+    background: white;
 	font-family: Poppins-Regular, Arial, Helvetica, sans-serif;
 	color: var(--c-black);
 	height: 100%;
@@ -39,6 +38,16 @@ body, html {	/* Gives placeholder background and default font */
 	overflow-x: hidden;
 	font-size: var(--f-medium) !important;
     line-height: 1.2;
+
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: 30px 1fr;
+    gap: 0px 0px;
+    height: 100vh;
+    width: 100vw;
+    grid-template-areas:
+    "header header"
+    "nav main";
 }
 
 @supports (scroll-behavior: smooth) {
@@ -101,6 +110,24 @@ label {
     text-transform: uppercase;
 }
 
+::-webkit-scrollbar { /* Width */
+    width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb { /* Handle */
+	background: var(--c-darkgray);
+	border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+    background: var(--c-gray);
+}
+
 #login-screen {
     display: flex;
     justify-content: center;
@@ -109,13 +136,13 @@ label {
 }
 
 #login-panel {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     padding: 10px;
     border-radius: 3px;
     border: 5px solid var(--c-primary);
-    background: var(--c-white)
+    background: white
 }
 
 #login-panel img {
@@ -132,7 +159,7 @@ label {
 #login-submit {
     border-radius: 3px;
     background: var(--c-primary);
-    color: var(--c-white);
+    color: white;
     font-family: var(--bold);
     width: min-content;
     margin: 5px auto;
@@ -140,7 +167,7 @@ label {
 }
 
 input[type="text"] {
-	background-color: var(--c-white);
+	background-color: white;
 	box-sizing: border-box;
     border: 2px solid var(--c-primary);
 	margin: 3px 0 30px;
@@ -151,4 +178,402 @@ input[type="text"] {
 	background-repeat: no-repeat;
 	background-position: 10px;
 	text-align: start;
+}
+
+header {
+    grid-area: header;
+    background: var(--c-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 25px;
+    font-family: var(--bold);
+}
+
+#logout-button {
+    border-radius: 50px;
+    border: 3px solid white;
+    padding: 2px 7px;
+    line-height: 1;
+    color: white;
+}
+
+nav {
+    grid-area: nav;
+    background: var(--c-lightestgray);
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    line-height: 1.5;
+}
+
+body.store nav .navigation-option:nth-of-type(1) {
+    color: var(--c-primary);
+    font-family: var(--bold);
+}
+
+body.production nav .navigation-option:nth-of-type(2) {
+    color: var(--c-primary);
+    font-family: var(--bold);
+}
+
+body.storage nav .navigation-option:nth-of-type(3) {
+    color: var(--c-primary);
+    font-family: var(--bold);
+}
+
+body.product nav .navigation-option:nth-of-type(4) {
+    color: var(--c-primary);
+    font-family: var(--bold);
+}
+
+main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#main-top {
+    padding: 25px 50px;
+}
+
+#page-title {
+    font-size: 30px;
+}
+
+#page-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    gap: 10px;
+}
+
+.page-button {
+    color: white;
+    padding: 5px;
+}
+
+.page-button.primary {
+    background: var(--c-primary);
+    font-family: var(--bold);
+}
+
+.page-button.secondary {
+    background: var(--c-darkgray);
+}
+
+#main-content {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Table design */
+
+/* Table */
+
+table {
+    --lineheight: calc(1.4em + 1.25vmin);
+    --roundcorner: 5px;
+    color: var(--c-black);
+    border: none;
+    border-collapse: collapse;
+	border-spacing: 0;
+    line-height: 1;
+
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Column same and fixed width */
+table.fixed {
+	table-layout: fixed;
+}
+
+/* Smaller font size and row line height */
+table.small {
+    --lineheight: calc(1.2em + 1.0vmin) !important;
+}
+
+table.small p {
+    font-size: var(--f-small) !important;
+}
+
+/* Even smaller font size but same row line height */
+table.xsmall {
+    --lineheight: calc(1.2em + 1.0vmin) !important;
+}
+
+table.xsmall p {
+    font-size: var(--f-xsmall) !important;
+}
+
+/* Cursor stays the same on hover, no hover effect */
+table.no_interaction tr {
+	cursor: default !important;
+}
+
+table.no_interaction tr:hover {
+	-webkit-filter: none !important;
+	filter: none !important;
+}
+
+
+
+/* Table Header Group */
+
+thead {
+    font-family: var(--bold);
+	text-transform: uppercase;
+}
+
+/* Makes Table Header elements not sticky */
+thead.no_stick th {
+	position: relative !important;
+}
+
+/* Makes Table Header hover not change the cursor type */
+thead tr {
+	cursor: default !important;
+}
+
+/* Makes Table Header elements not sticky */
+thead tr:hover {
+	-webkit-filter: none !important;
+	filter: none !important;
+}
+
+
+
+/* Table Row Group */
+
+tbody {}
+
+/* Selected rows are not scaled up visually */
+tbody.no_scale tr.selected {
+
+}
+
+
+
+/* Table Headers */
+
+th {
+    font-weight: normal !important;
+	position: relative;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	background-color: var(--c-primary);
+    color: white;
+    padding: 5px 0;
+}
+
+/* Rounded Corners on the tables top left */
+th:first-of-type {
+	border-top-left-radius: var(--roundcorner);
+}
+
+/* Rounded Corners on the tables top right */
+th:last-of-type {
+	border-top-right-radius: var(--roundcorner);
+}
+
+/* Table Rows */
+
+tr {
+    height: var(--lineheight);
+    cursor: pointer;
+    transition: transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
+    outline: none;
+    box-shadow: 0 0 0 rgba(37, 37, 37, .1);
+}
+
+tbody tr:first-of-type {
+    border-top: none !important;
+}
+
+tbody tr:last-of-type {
+    border-bottom: none !important;
+}
+
+tr:hover {
+	-webkit-filter: brightness(.9) !important;
+	filter: brightness(.9) !important;
+}
+
+tr.hidden {
+    display: none;
+}
+
+/* Makes the whole row bold */
+tr.bold {
+    font-family: var(--bold);
+}
+
+
+/* Table Items */
+
+td {
+    /*border: 1.5px solid var(--c-lightgray);*/
+}
+
+/* Makes the text bold */
+td.bold {
+	font-family: var(--bold);
+}
+
+/* Makes the first letter caps */
+td.capitalize p::first-letter {
+	text-transform: uppercase;
+}
+
+/* Makes the text start on the left side */
+td.start {
+	text-align: start;
+}
+
+/* Rounded Corners on the tables bottom left */
+tr:last-of-type td:first-of-type {
+	border-bottom-left-radius: var(--roundcorner);
+}
+
+/* Rounded Corners on the tables bottom right */
+tr:last-of-type td:last-of-type {
+	border-bottom-right-radius: var(--roundcorner);
+}
+
+
+
+/* Table Square Headers and Table Square Items */
+
+th.square, td.square {
+    width: var(--lineheight);
+}
+
+/* Buttons inside square table elements */
+th.square button, td.square button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Icons and Images inside square table elements */
+th.square img, td.square img {
+    width: 65%;
+    height: 65%;
+}
+
+
+/* Table Small Headers and Table Small Items*/
+
+th.small, td.small {
+    width: 20px;
+    min-width: 20px;
+}
+
+
+
+/* Table Row and Item Selection */
+
+tr.selected {
+	background: var(--c-primary) !important;
+	box-shadow: var(--s-black);
+	transform: scale(1.01);
+	font-family: var(--bold);
+}
+
+tr.selected:hover {
+	-webkit-filter: brightness(1.1) !important;
+	filter: brightness(1.1) !important;
+}
+
+tr.selected td:first-of-type {
+	border-radius: var(--roundcorner) 0 0 var(--roundcorner);
+}
+
+tr.selected td:last-of-type {
+	border-radius: 0 var(--roundcorner) var(--roundcorner) 0;
+}
+
+td.selected {
+    background: var(--c-secondary) !important;
+	transform: scale(1.01);
+	font-family: var(--bold);
+}
+
+/* Special case of disqualification, makes the first item line-through exept if selected */
+tr.disqualified.selected td:first-child {
+	text-decoration: none;
+	color: var(--c-black);
+}
+
+
+/* Text inside Table elements */
+
+th p, tr p {
+    padding: 0 7px;
+}
+
+
+
+/* Table Rows and Items manual coloring */
+
+table .gray, table .silver, table .filled, table .disqualified {
+    background: var(--c-gray);
+}
+
+table .green {
+    background: var(--c-green);
+}
+
+table .red {
+    background: var(--c-red);
+}
+
+table .purple {
+    background: var(--c-yellow);
+}
+
+table .yellow, table .gold {
+    background: var(--c-yellow);
+}
+
+table .blue {
+    background: var(--c-blue);
+}
+
+table .purple {
+    background: var(--c-purple);
+    color: var(--c-white);
+}
+
+table .bronze {
+    background: var(--c-bronze);
+}
+
+
+
+/* Table Rows and Items standard automatic coloring */
+
+tbody tr:nth-child(even) {
+    background: var(--c-lightergray);
+}
+
+tbody tr:nth-child(odd) {
+    background: var(--c-lightestgray);
+}
+
+tbody tr {
+    border-top: 1.5px solid var(--c-gray);
+    border-bottom: 1.5px solid var(--c-gray);
 }
