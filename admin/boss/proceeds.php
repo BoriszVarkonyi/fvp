@@ -32,28 +32,14 @@
                 <thead>
                     <tr>
                         <th>
-                            <p>ALAPANYAG</p>
-                        </th>
-                        <th>
-                            <p>MENNYISÉG</p>
+                            <p>DÁTUM</p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
-                            <p>neve</p>
-                        </td>
-                        <td>
-                            <p>{memmyniség} {mértékegység}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>neve</p>
-                        </td>
-                        <td>
-                            <p>{memmyniség} {mértékegység}</p>
+                            <p>Dátum</p>
                         </td>
                     </tr>
                 </tbody>

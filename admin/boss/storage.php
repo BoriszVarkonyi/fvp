@@ -22,7 +22,16 @@
         <div id="main-top">
             <p id="page-title">Készlet</p>
             <div id="page-buttons">
-                <a class="page-button primary" href="new-proceed.php">Új bevét</a>
+
+                <form id="new-proceed-form" class="page-button-wrapper">
+                    <button class="page-button primary" id="new-proceed-button" type="button" onclick="newProceedToggle()">Új bevét</button>
+                    <button class="page-button secondary hidden" id="new-proceed-back-button" type="button" onclick="newProceedToggle()">Vissza</button>
+                    <div>
+                        <input type="date" name="" id="new-proceed-date" class="hidden">
+                    </div>
+                    <button class="page-button primary hidden" id="new-proceed-submit-button" type="submit">Új bevét</button>
+                </form>
+
                 <a class="page-button primary" href="material.php">Új alapanyag</a>
                 <a class="page-button secondary" href="proceeds.php">Bevitelezések</a>
             </div>
@@ -52,6 +61,6 @@
             </table>
         </div>
     </main>
-    <script src="main-script.js"></script>
+    <script src="/../js/main-script.js"></script>
 </body>
 </html>
