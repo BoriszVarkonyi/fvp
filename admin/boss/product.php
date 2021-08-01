@@ -4,6 +4,8 @@
 
 <?php
 
+$termek_id = $_GET['id'];
+
 if (isset($_POST['save'])) {
 
     $name = $_POST['name'];
@@ -58,7 +60,7 @@ if (isset($_POST['save'])) {
 
     $quantity = $_POST['quantity'];
 
-    $ingredients = []; 
+    $ingredients = [];
 
     $query = "SELECT * FROM `keszlet`";
     $query_do = mysqli_query($connection, $query);
@@ -82,15 +84,47 @@ if (isset($_POST['save'])) {
         $anyag->mertekegyseg = $mertekegyseg;
 
         array_push($ingredients, $anyag);
-
     }
 
     $recept = json_encode($ingredients, JSON_UNESCAPED_UNICODE);
 
-    $query = "INSERT INTO `termekek`(`nev`, `kat_id`, `ar`, `leiras`, `kep`, `weben_van`, `recept`) VALUES ('$name','$category',$price,'$description','$pic_name',$product_visibility,'$recept')";
-    $query_do = mysqli_query($connection, $query);
-
     echo mysqli_error($connection);
+
+
+    if ($termek_id == 'new') {
+
+        $query = "INSERT INTO `termekek`(`nev`, `kat_id`, `ar`, `leiras`, `kep`, `weben_van`, `recept`) VALUES ('$name','$category',$price,'$description','$pic_name',$product_visibility,'$recept')";
+        $query_do = mysqli_query($connection, $query);
+    }
+    else{
+
+        if ($pic_name == '') {
+            
+            $query = "UPDATE `termekek` SET `nev`='$name',`kat_id`='$category',`ar`='$price',`leiras`='$description',`weben_van`=$product_visibility,`recept`='$recept' WHERE `id` = $termek_id";
+            $query_do = mysqli_query($connection, $query);
+        }
+        else{
+
+            $query_del_pic = "SELECT kep FROM `termekek` WHERE `id` = $termek_id";
+            $query_del_pic_do = mysqli_query($connection, $query_del_pic);
+
+            if ($row = mysqli_fetch_assoc($query_del_pic_do)){
+
+                $del_pic_name = $row['kep'];
+
+            }
+
+            unlink($del_pic_name);
+
+            $query = "UPDATE `termekek` SET `nev`='$name',`kat_id`='$category',`ar`='$price',`leiras`='$description',`kep`='$pic_name',`weben_van`=$product_visibility,`recept`='$recept' WHERE `id` = $termek_id";
+            $query_do = mysqli_query($connection, $query);
+        }
+
+        
+
+    }
+
+    header("Location: products.php");
 
 }
 
@@ -137,27 +171,56 @@ if (isset($_POST['save'])) {
 
                     <p class="form-column-title">ADATOK</p>
 
+                    <?php
+
+                    if ($termek_id != 'new') {
+
+                        $json_query = "SELECT * FROM `termekek` WHERE `id` = $termek_id";
+                        $json_query_do = mysqli_query($connection, $json_query);
+
+                        if ($row = mysqli_fetch_assoc($json_query_do)) {
+
+                            $nev = $row['nev'];
+                            $kategoria = $row['kat_id'];
+                            $ar = $row['ar'];
+                            $leiras = $row['leiras'];
+                            $weben_van = $row['weben_van'];
+                            $json_recept = json_decode($row['recept']);
+                        }
+                    }
+
+                    ?>
+
                     <label for="product-name">NÉV</label>
-                    <input type="text" name="name" id="product-name">
+                    <input type="text" value="<?php echo $qu = ($termek_id == 'new') ? '' : $nev ?>" name="name" id="product-name">
 
                     <label for="product-category">KATEGÓRIA</label>
                     <div class="select-wrapper">
-                        <input type="text" name="category" id="product-category" onfocus="openSelect(this)">
+                        <input type="text" name="category" value="<?php echo $qu = ($termek_id == 'new') ? '' : $kategoria ?>" id="product-category" onfocus="openSelect(this)">
                         <div class="select-options hidden">
-                            <button onclick="select(this)" type="button">Opció 1</button>
-                            <button onclick="select(this)" type="button">Opció 2</button>
-                            <button onclick="select(this)" type="button">Opció 3</button>
-                            <button onclick="select(this)" type="button">Opció 4</button>
-                            <button onclick="select(this)" type="button">Opció 5</button>
-                            <button onclick="select(this)" type="button">Opció 6</button>
+
+                            <?php
+
+                            $query = "SELECT * FROM `kategoriak`";
+                            $query_do = mysqli_query($connection, $query);
+
+                            while ($row = mysqli_fetch_assoc($query_do)) {
+
+                                $nev = $row['nev'];
+
+                            ?>
+                                <button onclick="select(this)" type="button"><?php echo $nev; ?></button>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
 
                     <label for="product-price">ÁR / DARAB</label>
-                    <input type="number" name="price" id="product-price">
+                    <input type="number" value="<?php echo $qu = ($termek_id == 'new') ? '' : $ar ?>" name="price" id="product-price">
 
                     <label for="product-description">LEÍRÁS</label>
-                    <textarea name="description" id="product-description" cols="20" rows="5"></textarea>
+                    <textarea name="description" id="product-description" cols="20" rows="5"><?php echo $qu = ($termek_id == 'new') ? '' : $leiras ?></textarea>
 
                     <label for="product-picture">KÉP</label>
                     <div class="file-upload">
@@ -166,9 +229,9 @@ if (isset($_POST['save'])) {
 
                     <label for="product-visibility">WEBOLDAL LÁTHATÓSÁG</label>
                     <div class="option_container">
-                        <input type="radio" name="product-visibility" id="product-visible" value="1" checked />
+                        <input type="radio" name="product-visibility" id="product-visible" value="1" <?php echo $qu = ($termek_id == 'new') ? 'checked' : ($weben_van == 1) ? 'checked' : '' ?> />
                         <label for="product-visible">Látható</label>
-                        <input type="radio" name="product-visibility" id="product-not-visible" value="0" />
+                        <input type="radio" name="product-visibility" id="product-not-visible" value="0" <?php echo $qu = ($weben_van == 0) ? 'checked' : '' ?> />
                         <label for="product-not-visible">Nem látható</label>
                     </div>
 
@@ -179,7 +242,7 @@ if (isset($_POST['save'])) {
                     <p class="form-column-title">RECEPT</p>
 
                     <label for="product-recipe-quantity">ENNYI DARAB</label>
-                    <input type="text" name="quantity" id="product-recipe-quantity">
+                    <input type="text" value="<?php echo $qu = ($termek_id == 'new') ? '' : 1 ?>" name="quantity" id="product-recipe-quantity">
 
                     <label for="product-recipe">ENNYI HOZZÁVALÓ</label>
                     <table class="fixed no-interaction" id="product-recipe">
@@ -204,8 +267,13 @@ if (isset($_POST['save'])) {
 
                                 $id = $row['id'];
                                 $nev = $row['anyagnev'];
-                                $mennyiseg = $row['mennyiseg'];
+
+                                $key = array_search($id, array_column($json_recept, 'id'));
+
+                                $mennyiseg = $json_recept[$key]->mennyiseg;
                                 $mertekegyseg = $row['mertekegyseg'];
+
+
 
 
                             ?>
@@ -216,7 +284,7 @@ if (isset($_POST['save'])) {
                                     </td>
                                     <td>
                                         <div>
-                                            <input type="number" value="0" name="<?php echo $id ?>" id="">
+                                            <input type="float" value="<?php echo $qu = ($termek_id == 'new') ? 0 : $mennyiseg ?>" name="<?php echo $id ?>" id="">
                                             <p><?php echo $mertekegyseg ?></p>
                                         </div>
                                     </td>
