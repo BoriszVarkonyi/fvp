@@ -14,17 +14,27 @@
     </header>
     <nav>
         <a href="stores.php" class="navigation-option">ÜZLETEK</a>
-        <a href="production.php" class="navigation-option">GYÁRTÁS</a>
+        <a href="productions.php" class="navigation-option">GYÁRTÁS</a>
         <a href="storage.php" class="navigation-option">KÉSZLET</a>
         <a href="products.php" class="navigation-option">TERMÉKEK</a>
     </nav>
     <main>
         <div id="main-top">
-            <p id="page-title">Gyártás</p>
+            <p id="page-title">Új gyártás / Gyártás dátuma</p>
             <div id="page-buttons">
                 <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
-                <button class="page-button secondary">Vissza</button>
+                <a class="page-button secondary" href="print-production.php">Nyomtatás</a>
+                <form action="">
+                    <button class="page-button secondary">Törlés</button>
+                </form>
+                <a class="page-button secondary" href="productions.php">Vissza</a>
+            </div>
+            <div id="page-details">
+                <div>
+                    <p>MA</p>
+                    <p>∙</p>
+                    <p>KÉSZ</p>
+                </div>
             </div>
         </div>
         <div id="main-content">
@@ -32,37 +42,20 @@
                 <thead>
                     <tr>
                         <th>
-                            <p>Oszlop 1</p>
+                            <p>BOLT</p>
                         </th>
                         <th>
-                            <p>Oszlop 2</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 3</p>
+                            <p>GYÁRTÁS STÁTUSZ</p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr onclick="window.location.href='store-production.php'">
                         <td>
-                            <p>Sor 1</p>
+                            <p>Helo</p>
                         </td>
                         <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
+                            <p>Kész</p>
                         </td>
                     </tr>
                 </tbody>

@@ -50,6 +50,18 @@ body, html {	/* Gives placeholder background and default font */
     "nav main";
 }
 
+body.no-nav {	/* Gives placeholder background and default font */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30px 1fr;
+    gap: 0px 0px;
+    height: 100vh;
+    width: 100vw;
+    grid-template-areas:
+    "header"
+    "main";
+}
+
 @supports (scroll-behavior: smooth) {
 	body, html {
 		scroll-behavior: smooth;
@@ -166,7 +178,7 @@ label {
     padding: 5px 7px;
 }
 
-input[type="text"], input[type="date"], input[type="number"] {
+input[type="text"], input[type="password"], input[type="date"], input[type="number"], input[type="time"] {
 	background-color: white;
 	box-sizing: border-box;
     border: 2px solid var(--c-primary);
@@ -191,7 +203,7 @@ textarea {
     width: 100%;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
 	width: 250px;
 }
 
@@ -199,6 +211,13 @@ input[type="date"] {
     width: 220px;
     padding: 0 10px !important;
     text-align: center !important;
+}
+
+input[type="time"] {
+    width: 100px;
+    padding: 0 6px 0 10px !important;
+    text-align: center !important;
+    margin: 0 !important;
 }
 
 #page-button-input {
@@ -300,8 +319,47 @@ main {
     overflow: hidden;
 }
 
+main.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--bold);
+}
+
+#opening-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+}
+
+#opening-form .page-button {
+    margin-top: 5px;
+}
+
 #main-top {
     padding: 25px 50px;
+    position: relative;
+}
+
+#page-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 25px;
+    right: 50px;
+    background: white;
+}
+
+#page-details > div {
+    display: flex;
+}
+
+#page-details > div p {
+    font-size: 30px;
+    font-family: var(--light);
+    margin-right: 20px;
 }
 
 #page-title {
@@ -705,8 +763,12 @@ tbody tr {
     color: var(--c-gray);
 }
 
-#product-recipe {
+#product-recipe, #store-business-hours {
     margin-top: 3px;
+}
+
+#store-business-hours {
+    margin-bottom: 30px;
 }
 
 /* Checkbox Input */
@@ -830,4 +892,225 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 .select-options button {
     width: 100%;
     text-align: center;
+}
+
+.table-title {
+    font-size: 20px;
+    font-family: var(--bold);
+    margin: 30px auto 10px;
+}
+
+/* SELLING */
+
+main.selling {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+}
+
+#cash-register, #shopping-cart {
+    background: var(--c-lightergray);
+}
+
+#products-listing {
+    display: flex;
+    flex-direction: column;
+}
+
+#categories {
+    display: flex;
+    padding: 20px;
+    flex: 0 0 auto;
+    background: var(--c-lightestgray);
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 15px;
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: .5vh solid;
+    height: 6vh;
+    min-width: 6vh;
+    box-sizing: border-box;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-family: var(--bold);
+    font-size: 20px;
+    background: white;
+    cursor: pointer;
+}
+
+.category.selected {
+    border-color: var(--c-primary);
+    transform: scale(1.1);
+}
+
+#products-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 50%;
+}
+
+.category-products-listing{
+
+}
+
+.category-products-listing.hidden {
+    display: none;
+}
+
+.category-title {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 25px;
+    background: var(--c-lightgray);
+    font-family: var(--bold);
+    border-top: 3px solid var(--c-primary);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.product {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    border: .5vh solid var(--c-darkgray);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.product-name {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--bold);
+    font-size: 20px;
+}
+
+.product.added {
+    border: .5vh solid var(--c-primary);
+}
+
+.product-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: var(--c-lightestgray);
+}
+
+.product-input input {
+    margin: 3px 0 !important;
+    color: var(--c-primary) !important;
+    font-size: 20px;
+}
+
+input.active {
+    border-width: 5px !important;
+}
+
+.price, .quantity {
+    text-align: center;
+    color: var(--c-primary);
+    font-family: var(--bold);
+}
+
+.quantity.hidden {
+    display: none;
+}
+
+.product-button {
+    flex: 1 1 1;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+.product-button img {
+    width: 25px;
+    height: 25px;
+}
+
+#shopping-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shopping-cart-title {
+    margin: 10px 0;
+    font-size: 25px;
+}
+
+#shopping-cart-list {
+    width: 95%;
+}
+
+.shopping-cart-item {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.shopping-cart-item > div:nth-of-type(1){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    height: 35px;
+    padding: 0 15px;
+}
+
+.cart-item-name, .cart-item-price {
+    font-family: var(--bold);
+}
+
+.cart-item-price {
+    color: var(--c-primary);
+}
+
+.shopping-cart-item > div:nth-of-type(2){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--c-lightestgray);
+    padding: 5px 0;
+    max-height: 50px;
+}
+
+.shopping-cart-item > div:nth-of-type(2).closed {
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+
+.shopping-cart-item > div:nth-of-type(2) button {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shopping-cart-item > div:nth-of-type(2) button img {
+    width: 32px;
+    height: 32px;
 }

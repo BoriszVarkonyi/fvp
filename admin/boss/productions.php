@@ -14,7 +14,7 @@
     </header>
     <nav>
         <a href="stores.php" class="navigation-option">ÜZLETEK</a>
-        <a href="production.php" class="navigation-option">GYÁRTÁS</a>
+        <a href="productions.php" class="navigation-option">GYÁRTÁS</a>
         <a href="storage.php" class="navigation-option">KÉSZLET</a>
         <a href="products.php" class="navigation-option">TERMÉKEK</a>
     </nav>
@@ -22,9 +22,14 @@
         <div id="main-top">
             <p id="page-title">Gyártások</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
-                <button class="page-button secondary">Vissza</button>
+                <form id="page-button-form" method="post" class="page-button-wrapper" autocomplete="off">
+                    <button class="page-button primary" id="page-button-button" type="button" onclick="newProceedToggle()">Új gyártás</button>
+                    <button class="page-button secondary hidden" id="page-button-back-button" type="button" onclick="newProceedToggle()">Vissza</button>
+                    <div>
+                        <input type="date" name="" id="page-button-input" class="hidden">
+                    </div>
+                    <button class="page-button primary hidden" name="" id="page-button-submit-button" type="submit">Új gyártás</button>
+                </form>
             </div>
         </div>
         <div id="main-content">
@@ -32,37 +37,20 @@
                 <thead>
                     <tr>
                         <th>
-                            <p>Oszlop 1</p>
+                            <p>DÁTUM</p>
                         </th>
                         <th>
-                            <p>Oszlop 2</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 3</p>
+                            <p>STÁTUSZ</p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
-                            <p>Sor 1</p>
+                            <p>Dátume</p>
                         </td>
                         <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
+                            <p>Kész</p>
                         </td>
                     </tr>
                 </tbody>

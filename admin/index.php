@@ -55,21 +55,12 @@ if (isset($_POST['login-do'])) {
     <div id="login-panel">
         <img src="../assets/images/logo.jpg">
 
-<<<<<<< HEAD
         <form action="" method="post">
-            <label for="login-username">FELHASZNÁLÓNÉV:</label>
+            <label for="login-username">FELHASZNÁLÓNÉV</label>
             <input type="text" name="username" id="login-username">
 
-            <label for="login-password">JELSZÓ:</label>
-            <input type="text" name="password" id="login-password">
-=======
-        <form action="">
-            <label for="login-username">FELHASZNÁLÓNÉV</label>
-            <input type="text" id="login-username">
-
             <label for="login-password">JELSZÓ</label>
-            <input type="text" id="login-password">
->>>>>>> 1989c34402ac09041bd0373eaac30945e2c86e8c
+            <input type="password" name="password" id="login-password">
 
             <button type="submit" name="login-do" id="login-submit">Bejelentkezés</button>
         </form>

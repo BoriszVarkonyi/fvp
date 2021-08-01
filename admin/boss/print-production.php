@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/../css/base-style.css">
+    <link rel="stylesheet" href="/../css/base-print-style.css">
     <title>Gyártás nyomtatás</title>
 </head>
 <body class="production">
@@ -14,7 +15,7 @@
     </header>
     <nav>
         <a href="stores.php" class="navigation-option">ÜZLETEK</a>
-        <a href="production.php" class="navigation-option">GYÁRTÁS</a>
+        <a href="productions.php" class="navigation-option">GYÁRTÁS</a>
         <a href="storage.php" class="navigation-option">KÉSZLET</a>
         <a href="products.php" class="navigation-option">TERMÉKEK</a>
     </nav>
@@ -22,51 +23,263 @@
         <div id="main-top">
             <p id="page-title">Gyártás nyomtatás</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
-                <button class="page-button secondary">Vissza</button>
+                <button class="page-button primary" onclick="window.print()">Nyomtatás</button>
+                <a class="page-button secondary" href="production.php">Vissza</a>
             </div>
         </div>
         <div id="main-content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            <p>Oszlop 1</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 2</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 3</p>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="paper">
+                <div class="paper-title">
+                    <p>DÁTUM GYÁRTÁSA</p>
+                </div>
+
+                <div class="paper-content">
+                    <div class="store-wrapper">
+                        <p class="store-name">ÜZLET NEVE hosszú neve vaan aaaa  kjóóó</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><p>TERMÉK</p></th>
+                                    <th><p>MENNYISÉG</p></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>very longen névvvvvvv az jóóó vagy nem</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="store-wrapper">
+                        <p class="store-name">ÜZLET NEVE</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><p>TERMÉK</p></th>
+                                    <th><p>MENNYISÉG</p></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>very longen névvvvvvv az jóóó vagy nem</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="store-wrapper">
+                        <p class="store-name">ÜZLET NEVE</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><p>TERMÉK</p></th>
+                                    <th><p>MENNYISÉG</p></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>very longen névvvvvvv az jóóó vagy nem</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="store-wrapper">
+                        <p class="store-name">ÜZLET NEVE</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><p>TERMÉK</p></th>
+                                    <th><p>MENNYISÉG</p></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>very longen névvvvvvv az jóóó vagy nem</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <script src="/../js/main-script.js"></script>
