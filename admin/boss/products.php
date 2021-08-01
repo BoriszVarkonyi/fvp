@@ -10,6 +10,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="/../css/base-style.css">
     <title>Termékek</title>
 </head>
+
 <body class="product">
     <header>
         <p>BOSS</p>
@@ -53,35 +55,45 @@
                 </thead>
                 <tbody>
                     <?php
-                    
+
                     $query = "SELECT * FROM `termekek`";
                     $query_do = mysqli_query($connection, $query);
 
-                    while ($row = mysqli_fetch_assoc($query_do)){
+                    if (mysqli_num_rows($query_do) != 0) {
 
-                        $id = $row['id']; 
-                        $nev = $row['nev'];
-                        $kat = $row['kat_id'];
-                        $ar = $row['ar'];
+                        while ($row = mysqli_fetch_assoc($query_do)) {
 
-                    }
-                    
+                            $id = $row['id'];
+                            $nev = $row['nev'];
+                            $kat = $row['kat_id'];
+                            $ar = $row['ar'];
+
+
+
                     ?>
-                    <tr onclick="window.location.href='product.php?id=<?php echo $id; ?>'">
-                        <td>
-                            <p><?php echo $nev?></p>
-                        </td>
-                        <td>
-                            <p><?php echo $kat?></p>
-                        </td>
-                        <td>
-                            <p><?php echo $ar?> Ft.</p>
-                        </td>
-                    </tr>
+                            <tr onclick="window.location.href='product.php?id=<?php echo $id; ?>'">
+                                <td>
+                                    <p><?php echo $nev ?></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $kat ?></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $ar ?> Ft</p>
+                                </td>
+                            </tr>
+
+                    <?php
+
+                        }
+                    }
+
+                    ?>
                 </tbody>
             </table>
         </div>
     </main>
     <script src="/../js/main-script.js"></script>
 </body>
+
 </html>
