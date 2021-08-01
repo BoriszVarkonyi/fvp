@@ -1,3 +1,13 @@
+<?php include "../../includes/db.php" ?>
+<?php ob_start(); ?>
+<?php session_start(); ?>
+
+<?php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +32,7 @@
         <div id="main-top">
             <p id="page-title">Termékek</p>
             <div id="page-buttons">
-                <a class="page-button primary" href="product.php">Új termék</a>
+                <a class="page-button primary" href="product.php?id=new">Új termék</a>
                 <a class="page-button secondary" href="categories.php">Kategóriák</a>
             </div>
         </div>
@@ -42,26 +52,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr onclick="window.location.href='product.php'">
+                    <?php
+                    
+                    $query = "SELECT * FROM `termekek`";
+                    $query_do = mysqli_query($connection, $query);
+
+                    while ($row = mysqli_fetch_assoc($query_do)){
+
+                        $id = $row['id']; 
+                        $nev = $row['nev'];
+                        $kat = $row['kat_id'];
+                        $ar = $row['ar'];
+
+                    }
+                    
+                    ?>
+                    <tr onclick="window.location.href='product.php?id=<?php echo $id; ?>'">
                         <td>
-                            <p>Sor 1</p>
+                            <p><?php echo $nev?></p>
                         </td>
                         <td>
-                            <p>Sor 1</p>
+                            <p><?php echo $kat?></p>
                         </td>
                         <td>
-                            <p>Sor 1</p>
-                        </td>
-                    </tr>
-                    <tr onclick="window.location.href='product.php'">
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
+                            <p><?php echo $ar?> Ft.</p>
                         </td>
                     </tr>
                 </tbody>

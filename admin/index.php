@@ -60,7 +60,7 @@ if (isset($_POST['login-do'])) {
             <input type="text" name="username" id="login-username">
 
             <label for="login-password">JELSZÓ</label>
-            <input type="password" name="password" id="login-password">
+            <input type="text" name="password" id="login-password">
 
             <button type="submit" name="login-do" id="login-submit">Bejelentkezés</button>
         </form>
