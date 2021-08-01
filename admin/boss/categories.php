@@ -22,24 +22,26 @@
         <div id="main-top">
             <p id="page-title">Kategóriák</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
-                <button class="page-button secondary">Vissza</button>
+                <form id="page-button-form" method="post" class="page-button-wrapper" autocomplete="off">
+                    <button class="page-button primary" id="page-button-button" type="button" onclick="newProceedToggle()">Új kategória</button>
+                    <button class="page-button secondary hidden" id="page-button-back-button" type="button" onclick="newProceedToggle()">Vissza</button>
+                    <div>
+                        <input type="text" name="" id="page-button-input" class="hidden">
+                    </div>
+                    <button class="page-button primary hidden" name="ujbevet" id="page-button-submit-button" type="submit">Új kategória</button>
+                </form>
+
+                <a class="page-button secondary" href="products.php">Vissza</a>
             </div>
         </div>
-        <div id="main-content">
-            <table>
+        <form id="main-content">
+            <table class="no-interaction">
                 <thead>
                     <tr>
                         <th>
-                            <p>Oszlop 1</p>
+                            <p>NÉV</p>
                         </th>
-                        <th>
-                            <p>Oszlop 2</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 3</p>
-                        </th>
+                        <th class="square"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,27 +49,21 @@
                         <td>
                             <p>Sor 1</p>
                         </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
+                        <td class="square">
+                            <button type="submit"><img src="/../assets/icons/delete-black.svg"></button>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <p>Sor 2</p>
                         </td>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
+                        <td class="square">
+                            <button type="submit"><img src="/../assets/icons/delete-black.svg"></button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </form>
     </main>
     <script src="/../js/main-script.js"></script>
 </body>

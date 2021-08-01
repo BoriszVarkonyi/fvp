@@ -4,13 +4,13 @@ function newProceedToggle() {
 
 
 
-    var form = document.getElementById("new-proceed-form");
+    var form = document.getElementById("page-button-form");
 
-    var add = document.getElementById("new-proceed-button");
-    var back = document.getElementById("new-proceed-back-button");
-    var submit = document.getElementById("new-proceed-submit-button");
+    var add = document.getElementById("page-button-button");
+    var back = document.getElementById("page-button-back-button");
+    var submit = document.getElementById("page-button-submit-button");
 
-    var input = document.getElementById("new-proceed-date");
+    var input = document.getElementById("page-button-input");
 
     form.classList.toggle("opened")
 

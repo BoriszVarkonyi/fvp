@@ -47,7 +47,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr onclick="window.location.href='product.php'">
                         <td>
                             <p>Sor 1</p>
                         </td>
@@ -58,15 +58,15 @@
                             <p>Sor 1</p>
                         </td>
                     </tr>
-                    <tr>
+                    <tr onclick="window.location.href='product.php'">
                         <td>
-                            <p>Sor 2</p>
+                            <p>Sor 1</p>
                         </td>
                         <td>
-                            <p>Sor 2</p>
+                            <p>Sor 1</p>
                         </td>
                         <td>
-                            <p>Sor 2</p>
+                            <p>Sor 1</p>
                         </td>
                     </tr>
                 </tbody>
