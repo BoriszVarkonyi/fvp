@@ -277,13 +277,10 @@
 
 
                 <div class="shopping-cart-item">
-                    <div onclick="expandCartItem(this)">
+                    <div>
                         <p class="cart-item-name">Kifli</p>
-                        <p class="cart-item-quantity">8 db</p>
-                        <p class="cart-item-price">250 Ft</p>
-                    </div>
-                    <div class="closed">
                         <input type="number" class="product-input" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                        <p class="cart-item-price">250 Ft</p>
                         <button onclick="removeProduct(this)"><img src="/../assets/icons/delete-black.svg"></button>
                     </div>
                 </div>

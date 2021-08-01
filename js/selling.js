@@ -29,13 +29,6 @@ function selectCategory(x) {
     selectedCategory.classList.add("selected")
 }
 
-function expandCartItem(x) {
-    var selectedItem = x;
-    var selectedItemDetails = selectedItem.nextElementSibling;
-
-    selectedItemDetails.classList.toggle("closed")
-}
-
 var selectedInput;
 var givenAmountInput = document.getElementById("given-amount-input")
 
