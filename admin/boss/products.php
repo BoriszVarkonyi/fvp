@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/../css/base-style.css">
+    <link rel="stylesheet" href="/../css/admin-base-style.min.css">
     <title>Termékek</title>
 </head>
 <body class="product">
@@ -53,19 +53,19 @@
                 </thead>
                 <tbody>
                     <?php
-                    
+
                     $query = "SELECT * FROM `termekek`";
                     $query_do = mysqli_query($connection, $query);
 
                     while ($row = mysqli_fetch_assoc($query_do)){
 
-                        $id = $row['id']; 
+                        $id = $row['id'];
                         $nev = $row['nev'];
                         $kat = $row['kat_id'];
                         $ar = $row['ar'];
 
                     }
-                    
+
                     ?>
                     <tr onclick="window.location.href='product.php?id=<?php echo $id; ?>'">
                         <td>

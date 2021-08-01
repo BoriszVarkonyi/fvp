@@ -60,19 +60,16 @@ function setSelectedInput(input) {
         selectedInput = givenAmountInput;
         givenAmountInput.classList.add("active")
 
-
     } else {
 
         selectedInput = input;
         selectedInput.classList.add("active")
 
     }
-
 }
 
 function numPad(clickedValue) {
     selectedInput.value += clickedValue;
-
 }
 
 function backSpace() {

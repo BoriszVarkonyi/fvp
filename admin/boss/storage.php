@@ -21,7 +21,7 @@ if (isset($_POST['ujbevet'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/../css/base-style.css">
+    <link rel="stylesheet" href="/../css/admin-base-style.min.css">
     <title>Készlet</title>
 </head>
 
@@ -82,8 +82,8 @@ if (isset($_POST['ujbevet'])) {
 
                     ?>
 
-<?php 
-                        
+<?php
+
                         if ($termek_id == 'new') {
                             echo 'checked';
                         }
@@ -95,8 +95,8 @@ if (isset($_POST['ujbevet'])) {
 
 
                         }
-                        
-                        
+
+
                         ?>
 
                         <tr onclick="window.location.href='material.php?material_id=<?php echo $id; ?>'">
