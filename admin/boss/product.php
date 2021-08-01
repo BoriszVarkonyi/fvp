@@ -123,6 +123,16 @@ if (isset($_POST['save'])) {
 
 if (isset($_POST['del_product'])) {
 
+    $query_del_pic = "SELECT kep FROM `termekek` WHERE `id` = $termek_id";
+    $query_del_pic_do = mysqli_query($connection, $query_del_pic);
+
+    if ($row = mysqli_fetch_assoc($query_del_pic_do)) {
+
+        $del_pic_name = $row['kep'];
+    }
+
+    unlink($del_pic_name);
+
     $query = "DELETE FROM `termekek` WHERE `id` = $termek_id";
     $query_do = mysqli_query($connection, $query);
 

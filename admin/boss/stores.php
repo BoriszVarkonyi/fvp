@@ -1,5 +1,15 @@
+<?php include "../../includes/db.php" ?>
+<?php include "../../includes/functions.php" ?>
+<?php ob_start(); ?>
+<?php session_start(); ?>
+
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +17,7 @@
     <link rel="stylesheet" href="/../css/base-style.css">
     <title>Üzletek</title>
 </head>
+
 <body class="store">
     <header>
         <p>BOSS</p>
@@ -22,7 +33,7 @@
         <div id="main-top">
             <p id="page-title">Üzletek</p>
             <div id="page-buttons">
-                <a class="page-button primary" href="store.php">Új üzlet</a>
+                <a class="page-button primary" href="store.php?id=new">Új üzlet</a>
             </div>
         </div>
         <form id="main-content">
@@ -39,32 +50,43 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td onclick="window.location.href='store-dashboard.php'">
-                            <p>Sor 1</p>
-                        </td>
-                        <td onclick="window.location.href='store-dashboard.php'">
-                            <p>Sor 1</p>
-                        </td>
-                        <td class="square">
-                            <a href="store.php"><img src="/../assets/icons/edit-black.svg"></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td onclick="window.location.href='store-dashboard.php'">
-                            <p>Sor 1</p>
-                        </td>
-                        <td onclick="window.location.href='store-dashboard.php'">
-                            <p>Sor 1</p>
-                        </td>
-                        <td class="square">
-                            <a href="store.php"><img src="/../assets/icons/edit-black.svg"></a>
-                        </td>
-                    </tr>
+
+                    <?php
+
+                    $query = "SELECT * FROM `boltok`";
+                    $query_do = mysqli_query($connection, $query);
+
+                    if (mysqli_num_rows($query_do) != 0) {
+
+                        while ($row = mysqli_fetch_assoc($query_do)) {
+
+                            $id = $row['id'];
+                            $nev = $row['nev'];
+                            $status = statusConverter($row['statusz']);
+
+                    ?>
+
+                            <tr>
+                                <td onclick="window.location.href='store-dashboard.php?id=<?php echo $id; ?>date=today'">
+                                    <p><?php echo $nev; ?></p>
+                                </td>
+                                <td onclick="window.location.href='store-dashboard.php?id=<?php echo $id; ?>date=today'">
+                                    <p><?php echo $status; ?></p>
+                                </td>
+                                <td class="square">
+                                    <a href="store.php?id=<?php echo $id; ?>"><img src="/../assets/icons/edit-black.svg"></a>
+                                </td>
+                            </tr>
+
+                    <?php
+                        }
+                    }
+                    ?>
                 </tbody>
             </table>
         </form>
     </main>
     <script src="/../js/main-script.js"></script>
 </body>
+
 </html>

@@ -32,6 +32,7 @@ if (isset($_POST['login-do'])) {
             } else if ($role == 3) {
                 $_SESSION['role'] = "bolt";
                 $_SESSION['bolt_id'] = $shop_id;
+                header("Location: store/index.php");
             }
         }
     }
