@@ -13,6 +13,7 @@ function selectCategory(x) {
         allCategoryProducts[index].classList.add("hidden");
 
     }
+
     selectedCategoryProducts.classList.remove("hidden");
 
     //Deselecting all categories listings and selecting only the clicked one
@@ -30,4 +31,48 @@ function expandCartItem(x) {
     var selectedItemDetails = selectedItem.nextElementSibling;
 
     selectedItemDetails.classList.toggle("closed")
+}
+
+var selectedInput;
+
+function setSelectedInput(input) {
+
+    var allInputs = document.querySelectorAll("input");
+
+    for (let index = 0; index < allInputs.length; index++) {
+        allInputs[index].classList.remove("active")
+    }
+
+
+    if (selectedInput == input) {
+
+        selectedInput.classList.remove("active")
+        selectedInput = null;
+
+
+    } else {
+
+        selectedInput = input;
+        selectedInput.classList.add("active")
+
+    }
+
+}
+
+function numPad(clickedValue) {
+    selectedInput.value += clickedValue;
+
+}
+
+function backSpace() {
+
+    if (selectedInput.value.length > 1) {
+
+        var newValue = selectedInput.value.slice(0, -1);
+        selectedInput.value = newValue;
+
+    } else {
+        selectedInput.value = null;
+    }
+
 }

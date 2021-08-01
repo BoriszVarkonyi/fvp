@@ -1114,3 +1114,15 @@ input.active {
     width: 32px;
     height: 32px;
 }
+
+#register-numbers {
+    width: 100%;
+    font-size: 20px;
+}
+
+#register-numbers input {
+    width: 100%;
+    font-size: 20px;
+}
+
+

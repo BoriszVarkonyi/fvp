@@ -59,29 +59,3 @@ function copyToNextCell(x) {
 
     input.value = textToCopy;
 }
-
-
-var selectedInput;
-var allInputs = document.querySelectorAll("input");
-
-console.log(allInputs)
-
-
-function setSelectedInput(input) {
-    selectedInput = input;
-
-    console.log(selectedInput)
-
-    for (let index = 0; index < allInputs; index++) {
-        allInputs[index].classList.remove("active")
-    }
-
-
-    selectedInput.classList.add("active")
-}
-
-function numPad(clickedValue) {
-    selectedInput.value + clickedValue;
-
-
-}

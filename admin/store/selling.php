@@ -14,6 +14,11 @@
     </header>
     <main class="selling">
         <div id="cash-register">
+            <div id="register-numbers">
+                <p>Fizet: <span id="full-price">15000</span> Ft</p>
+                <p>Adott <input type="number" name="" id="" onclick="setSelectedInput(this)" readonly> Ft</p>
+                <p>Visszajár <span id="change">15000</span> Ft</p>
+            </div>
             <div id="numeric-pad">
                 <button onclick="numPad(1)">1</button>
                 <button onclick="numPad(2)">2</button>
@@ -25,6 +30,8 @@
                 <button onclick="numPad(8)">8</button>
                 <button onclick="numPad(9)">9</button>
                 <button onclick="numPad(0)">0</button>
+
+                <button onclick="backSpace()">Vissza</button>
             </div>
         </div>
         <div id="products-listing">
