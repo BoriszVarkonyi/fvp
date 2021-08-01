@@ -149,7 +149,7 @@ if (isset($_POST['del_product'])) {
     </header>
     <nav>
         <a href="stores.php" class="navigation-option">ÜZLETEK</a>
-        <a href="production.php" class="navigation-option">GYÁRTÁS</a>
+        <a href="productions.php" class="navigation-option">GYÁRTÁS</a>
         <a href="storage.php" class="navigation-option">KÉSZLET</a>
         <a href="products.php" class="navigation-option">TERMÉKEK</a>
     </nav>

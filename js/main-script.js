@@ -48,3 +48,14 @@ function closeSelect(x) {
 
     panel.classList.add("hidden")
 }
+
+function copyToNextCell(x) {
+    var button = x;
+    var buttonWrapper = button.parentNode;
+    var previousCell = buttonWrapper.previousElementSibling;
+    var textToCopy = previousCell.firstElementChild.innerText;
+    var nextCell = buttonWrapper.nextElementSibling;
+    var input = nextCell.firstElementChild.firstElementChild;
+
+    input.value = textToCopy;
+}

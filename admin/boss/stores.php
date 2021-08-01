@@ -14,7 +14,7 @@
     </header>
     <nav>
         <a href="stores.php" class="navigation-option">ÜZLETEK</a>
-        <a href="production.php" class="navigation-option">GYÁRTÁS</a>
+        <a href="productions.php" class="navigation-option">GYÁRTÁS</a>
         <a href="storage.php" class="navigation-option">KÉSZLET</a>
         <a href="products.php" class="navigation-option">TERMÉKEK</a>
     </nav>
@@ -22,52 +22,48 @@
         <div id="main-top">
             <p id="page-title">Üzletek</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
-                <button class="page-button secondary">Vissza</button>
+                <a class="page-button primary" href="store.php">Új üzlet</a>
             </div>
         </div>
-        <div id="main-content">
+        <form id="main-content">
             <table>
                 <thead>
                     <tr>
                         <th>
-                            <p>Oszlop 1</p>
+                            <p>ÜZLET</p>
                         </th>
                         <th>
-                            <p>Oszlop 2</p>
+                            <p>SZTÁTUSZ</p>
                         </th>
-                        <th>
-                            <p>Oszlop 3</p>
-                        </th>
+                        <th class="square"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
+                        <td onclick="window.location.href='store-dashboard.php'">
                             <p>Sor 1</p>
                         </td>
-                        <td>
+                        <td onclick="window.location.href='store-dashboard.php'">
                             <p>Sor 1</p>
                         </td>
-                        <td>
-                            <p>Sor 1</p>
+                        <td class="square">
+                            <a href="store.php"><img src="/../assets/icons/edit-black.svg"></a>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <p>Sor 2</p>
+                        <td onclick="window.location.href='store-dashboard.php'">
+                            <p>Sor 1</p>
                         </td>
-                        <td>
-                            <p>Sor 2</p>
+                        <td onclick="window.location.href='store-dashboard.php'">
+                            <p>Sor 1</p>
                         </td>
-                        <td>
-                            <p>Sor 2</p>
+                        <td class="square">
+                            <a href="store.php"><img src="/../assets/icons/edit-black.svg"></a>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </form>
     </main>
     <script src="/../js/main-script.js"></script>
 </body>

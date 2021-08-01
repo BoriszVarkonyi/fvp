@@ -14,17 +14,23 @@
     </header>
     <nav>
         <a href="stores.php" class="navigation-option">ÜZLETEK</a>
-        <a href="production.php" class="navigation-option">GYÁRTÁS</a>
+        <a href="productions.php" class="navigation-option">GYÁRTÁS</a>
         <a href="storage.php" class="navigation-option">KÉSZLET</a>
         <a href="products.php" class="navigation-option">TERMÉKEK</a>
     </nav>
     <main>
         <div id="main-top">
-            <p id="page-title">Üzlet gyártása</p>
+            <p id="page-title">{Üzlet név} gyártása</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
-                <button class="page-button secondary">Vissza</button>
+                <button class="page-button primary" type="submit" form="main-content">Mentés / Módósítás</button>
+                <a class="page-button secondary" href="production.php">Vissza</a>
+            </div>
+            <div id="page-details">
+                <div>
+                    <p>MA</p>
+                    <p>∙</p>
+                    <p>KÉSZ</p>
+                </div>
             </div>
         </div>
         <div id="main-content">
@@ -32,37 +38,23 @@
                 <thead>
                     <tr>
                         <th>
-                            <p>Oszlop 1</p>
+                            <p>TERMÉK</p>
                         </th>
                         <th>
-                            <p>Oszlop 2</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 3</p>
+                            <p>MENNYISÉG</p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
-                            <p>Sor 1</p>
+                            <p>néve</p>
                         </td>
                         <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
+                            <div>
+                                <input type="number" name="" id="">
+                                <p>kg</p>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

@@ -56,10 +56,10 @@ if (isset($_POST['login-do'])) {
         <img src="../assets/images/logo.jpg">
 
         <form action="" method="post">
-            <label for="login-username">FELHASZNÁLÓNÉV:</label>
+            <label for="login-username">FELHASZNÁLÓNÉV</label>
             <input type="text" name="username" id="login-username">
 
-            <label for="login-password">JELSZÓ:</label>
+            <label for="login-password">JELSZÓ</label>
             <input type="text" name="password" id="login-password">
 
             <button type="submit" name="login-do" id="login-submit">Bejelentkezés</button>

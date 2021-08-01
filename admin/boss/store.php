@@ -14,7 +14,7 @@
     </header>
     <nav>
         <a href="stores.php" class="navigation-option">ÜZLETEK</a>
-        <a href="production.php" class="navigation-option">GYÁRTÁS</a>
+        <a href="productions.php" class="navigation-option">GYÁRTÁS</a>
         <a href="storage.php" class="navigation-option">KÉSZLET</a>
         <a href="products.php" class="navigation-option">TERMÉKEK</a>
     </nav>
@@ -22,51 +22,90 @@
         <div id="main-top">
             <p id="page-title">Üzlet</p>
             <div id="page-buttons">
-                <button class="page-button primary">Új kategória</button>
-                <button class="page-button secondary">Törlés</button>
-                <button class="page-button secondary">Vissza</button>
+                <button class="page-button primary" type="submit" form="store-form">Hozzáadás / Mentés</button>
+
+                <form action="">
+                    <button class="page-button secondary">Törlés</button>
+                </form>
+
+                <a class="page-button secondary" href="stores.php">Vissza</a>
             </div>
         </div>
         <div id="main-content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            <p>Oszlop 1</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 2</p>
-                        </th>
-                        <th>
-                            <p>Oszlop 3</p>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                        <td>
-                            <p>Sor 1</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                        <td>
-                            <p>Sor 2</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <form action="" id="store-form" class="center-form" autocomplete="off">
+                <div class="form-column">
+
+                    <p class="form-column-title">ADATOK</p>
+
+                    <label for="store-name">NÉV</label>
+                    <input type="text" name="" id="store-name">
+
+                    <label for="store-address">CÍM</label>
+                    <input type="text" name="" id="store-address">
+
+                    <label for="store-description">LEÍRÁS</label>
+                    <textarea name="" id="store-description" cols="20" rows="5"></textarea>
+
+                    <label for="store-picture">KÉP</label>
+                    <div class="file-upload">
+                        <input type="file" name="" id="store-picture">
+                    </div>
+
+                </div>
+
+                <div class="form-column">
+
+                    <p class="form-column-title">NYITVATARTÁS ÉS BEJELENTKEZÉS</p>
+
+                    <label for="store-business-hours">ENNYI HOZZÁVALÓ</label>
+                    <table class="no-interaction" id="store-business-hours">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <p>NAP</p>
+                                </th>
+                                <th>
+                                    <p>NYITÁS</p>
+                                </th>
+                                <th>
+                                    <p>ZÁRÁS</p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>Hétfő</p>
+                                </td>
+                                <td>
+                                    <input type="time" name="" id="">
+                                </td>
+                                <td>
+                                    <input type="time" name="" id="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Kedd</p>
+                                </td>
+                                <td>
+                                    <input type="time" name="" id="">
+                                </td>
+                                <td>
+                                    <input type="time" name="" id="">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <label for="store-login-username">BOLTI FELHASZNÁLÓNÉV</label>
+                    <input type="text" name="" id="store-login-username">
+
+                    <label for="store-login-password">BOLTI JELSZÓ</label>
+                    <input type="password" name="" id="store-login-password">
+
+                </div>
+            </form>
         </div>
     </main>
     <script src="/../js/main-script.js"></script>

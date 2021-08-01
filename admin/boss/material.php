@@ -7,7 +7,7 @@
 $id = $_GET['material_id'];
 
 if (isset($_POST['save_material'])) {
-    
+
     $nev = $_POST['nev'];
     $mennyiseg = $_POST['mennyiseg'];
     $mertekegyseg = $_POST['mertekegyseg'];
@@ -27,7 +27,7 @@ if (isset($_POST['save_material'])) {
 }
 
 if (isset($_POST['torles'])) {
-    
+
     $query = "DELETE FROM `keszlet` WHERE id = '$id'";
     $query_do = mysqli_query($connection, $query);
     header("Location: storage.php");
@@ -64,7 +64,7 @@ if ($id != 'new') {
     </header>
     <nav>
         <a href="stores.php" class="navigation-option">ÜZLETEK</a>
-        <a href="production.php" class="navigation-option">GYÁRTÁS</a>
+        <a href="productions.php" class="navigation-option">GYÁRTÁS</a>
         <a href="storage.php" class="navigation-option">KÉSZLET</a>
         <a href="products.php" class="navigation-option">TERMÉKEK</a>
     </nav>
