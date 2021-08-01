@@ -16,11 +16,11 @@
         <div id="main-top">
             <p id="page-title">Ellenőrzés</p>
             <div id="page-buttons">
-                <button class="page-button primary" type="button" form="main-conten">Mentés</button>
+                <button class="page-button primary" type="submit" form="main-content">Mentés</button>
             </div>
         </div>
         <div id="main-content">
-            <table>
+            <table class="no-interaction">
                 <thead>
                     <tr>
                         <th>

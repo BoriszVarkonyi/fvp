@@ -16,7 +16,7 @@
         <div id="main-top">
             <p id="page-title">Gyártások {DÁTUM}</p>
             <div id="page-buttons">
-                <a class="page-button secondary" href="productions.php">Vissza</a>
+                <a class="page-button secondary" href="index.php">Vissza</a>
             </div>
             <div id="page-details">
                 <div>
