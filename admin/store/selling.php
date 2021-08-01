@@ -15,9 +15,27 @@
     <main class="selling">
         <div id="cash-register">
             <div id="register-numbers">
-                <p>Fizet: <span id="full-price">15000</span> Ft</p>
-                <p>Adott <input type="number" name="" id="" onclick="setSelectedInput(this)" readonly> Ft</p>
-                <p>Visszajár <span id="change">15000</span> Ft</p>
+                <div>
+                    <p>Fizet:</p>
+                    <div>
+                        <p id="full-price">15</p>
+                        <p> Ft</p>
+                    </div>
+                </div>
+                <div>
+                    <p>Adott:</p>
+                    <div>
+                        <input type="number" name="" id="given-amount-input" onclick="setSelectedInput(this)" readonly>
+                        <p>Ft</p>
+                    </div>
+                </div>
+                <div>
+                    <p>Visszajár:</p>
+                    <div>
+                        <p id="change">5</p>
+                        <p>Ft</p>
+                    </div>
+                </div>
             </div>
             <div id="numeric-pad">
                 <button onclick="numPad(1)">1</button>
@@ -29,10 +47,14 @@
                 <button onclick="numPad(7)">7</button>
                 <button onclick="numPad(8)">8</button>
                 <button onclick="numPad(9)">9</button>
+                <button onclick="backSpace()" class="small">Vissza</button>
                 <button onclick="numPad(0)">0</button>
-
-                <button onclick="backSpace()">Vissza</button>
+                <button onclick="clearInput()" class="small">Törlés</button>
             </div>
+            <form action="">
+                <input type="text" readonly>
+                <button class="action-buttons selling">Eladás befejezése</button>
+            </form>
         </div>
         <div id="products-listing">
             <div id="categories">
@@ -49,6 +71,7 @@
                 </button>
             </div>
             <div id="products-wrapper">
+                <p id="no-category-selected">Válassz ki egy kategóriát!</p>
                 <div id="category-products-1" class="category-products-listing hidden">
                     <p class="category-title">Édes</p>
                     <div class="products-grid">
@@ -251,6 +274,8 @@
 
             <div id="shopping-cart-list">
 
+
+
                 <div class="shopping-cart-item">
                     <div onclick="expandCartItem(this)">
                         <p class="cart-item-name">Kifli</p>
@@ -258,11 +283,15 @@
                         <p class="cart-item-price">250 Ft</p>
                     </div>
                     <div class="closed">
-                        <button><img src="/../assets/icons/remove-black.svg"></button>
-                        <button><img src="/../assets/icons/add-black.svg"></button>
+                        <input type="number" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
                         <button><img src="/../assets/icons/delete-black.svg"></button>
                     </div>
                 </div>
+
+
+                <form action="">
+                    <button class="action-buttons closing">Bolt bezárása</button>
+                </form>
 
             </div>
 

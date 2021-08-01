@@ -2,6 +2,8 @@ function selectCategory(x) {
     var selectedCategory = x;
     var selectedCategoryID = selectedCategory.id.slice(-1);
 
+    var noCategorySelectedText = document.getElementById("no-category-selected")
+
     console.log(selectedCategoryID);
 
     var allCategoryProducts = document.querySelectorAll(".category-products-listing");
@@ -15,6 +17,7 @@ function selectCategory(x) {
     }
 
     selectedCategoryProducts.classList.remove("hidden");
+    noCategorySelectedText.classList.add("hidden")
 
     //Deselecting all categories listings and selecting only the clicked one
 
@@ -34,6 +37,13 @@ function expandCartItem(x) {
 }
 
 var selectedInput;
+var givenAmountInput = document.getElementById("given-amount-input")
+
+function clearInput() {
+
+    selectedInput.value = null;
+
+}
 
 function setSelectedInput(input) {
 
@@ -47,7 +57,8 @@ function setSelectedInput(input) {
     if (selectedInput == input) {
 
         selectedInput.classList.remove("active")
-        selectedInput = null;
+        selectedInput = givenAmountInput;
+        givenAmountInput.classList.add("active")
 
 
     } else {
@@ -74,5 +85,4 @@ function backSpace() {
     } else {
         selectedInput.value = null;
     }
-
 }
