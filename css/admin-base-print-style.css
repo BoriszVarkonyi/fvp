@@ -204,4 +204,10 @@ td p {
         font-size: 10pt !important;
         margin-bottom: 5pt !important;
     }
+
+    .order-table {
+        margin: 50pt auto;
+        width: calc(100% - 50pt);
+        box-sizing: border-box;
+    }
 }
