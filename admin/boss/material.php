@@ -11,15 +11,16 @@ if (isset($_POST['save_material'])) {
     $nev = $_POST['nev'];
     $mennyiseg = $_POST['mennyiseg'];
     $mertekegyseg = $_POST['mertekegyseg'];
+    $kell_lennie = $_POST['kell_lennie'];
 
 
     if ($id == 'new') {
-        $query = "INSERT INTO `keszlet`(`anyagnev`, `mennyiseg`, `mertekegyseg`) VALUES ('$nev',$mennyiseg,'$mertekegyseg')";
+        $query = "INSERT INTO `keszlet`(`anyagnev`, `mennyiseg`, `kell_lennie`, `mertekegyseg`) VALUES ('$nev',$mennyiseg,$kell_lennie,'$mertekegyseg')";
         $query_do = mysqli_query($connection, $query);
         header("Location: storage.php");
     }
     else{
-        $query = "UPDATE `keszlet` SET `anyagnev`='$nev',`mennyiseg`=$mennyiseg,`mertekegyseg`='$mertekegyseg' WHERE `id` = '$id'";
+        $query = "UPDATE `keszlet` SET `anyagnev`='$nev',`mennyiseg`=$mennyiseg, `kell_lennie` = $kell_lennie, `mertekegyseg`='$mertekegyseg' WHERE `id` = '$id'";
         $query_do = mysqli_query($connection, $query);
         header("Location: storage.php");
     }
@@ -43,6 +44,7 @@ if ($id != 'new') {
         $a_nev = $row['anyagnev'];
         $a_mennyiseg = $row['mennyiseg'];
         $a_mertekegyseg = $row['mertekegyseg'];
+        $a_kell_lennie = $row['kell_lennie'];
     }
 }
 
@@ -84,6 +86,9 @@ if ($id != 'new') {
 
                 <label for="material-quantity">MENNYISÉG</label>
                 <input type="text" placeholder="" value="<?php echo $termekmenny = ($id != 'new') ? $a_mennyiseg : "" ?>" name="mennyiseg" id="material-quantity">
+
+                <label for="material-needed-quantity">KELL HOGY LEGYEN</label>
+                <input type="text" placeholder="" value="<?php echo $termekmertek = ($id != 'new') ? $a_kell_lennie : "" ?>" name="kell_lennie" id="material-needed-quantity">
 
                 <label for="material-unit">MÉRTÉKEGYSÉG</label>
                 <input type="text" placeholder="" value="<?php echo $termekmertek = ($id != 'new') ? $a_mertekegyseg : "" ?>" name="mertekegyseg" id="material-unit">

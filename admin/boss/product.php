@@ -245,6 +245,8 @@ if (isset($_POST['del_product'])) {
                         <label for="product-visible">Látható</label>
                         <input type="radio" name="product-visibility" id="product-not-visible" value="0" <?php echo $qu = ($weben_van == 0) ? 'checked' : '' ?> />
                         <label for="product-not-visible">Nem látható</label>
+                        <input type="radio" name="product-visibility" id="product-highlighted-visible" value="2" <?php echo $qu = ($weben_van == 2) ? 'checked' : '' ?> />
+                        <label for="product-highlighted-visible">Kiemelten látható</label>
                     </div>
 
                 </div>

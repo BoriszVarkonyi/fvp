@@ -69,12 +69,12 @@ if (isset($_POST['save'])) {
 
     $encoded = json_encode($adat, JSON_UNESCAPED_UNICODE);
 
-    $query = "UPDATE `gyartas` SET adat = '$encoded'";
+    $query = "UPDATE `gyartas` SET adat = '$encoded' WHERE datum = '$date'";
     $query_do = mysqli_query($connection, $query);
 
     //BOLT NAPOK GENERALAS
 
-    $query_day = "SELECT * FROM `bolt_napok` WHERE bolt_id = $store_id";
+    $query_day = "SELECT * FROM `bolt_napok` WHERE bolt_id = $store_id AND datum = '$date'";
     $query_day_do = mysqli_query($connection, $query_day);
 
     if (mysqli_num_rows($query_day_do) == 0) {
