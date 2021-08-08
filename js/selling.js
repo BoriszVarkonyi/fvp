@@ -1,6 +1,10 @@
-function selectCategory(x) {
-    var selectedCategory = x;
-    var selectedCategoryID = selectedCategory.id.slice(-1);
+var selectedCategoryID = 0;
+var selectedProcuctCounter = 0;
+
+function selectCategory(selectedCategory) {
+
+    selectedCategoryID = selectedCategory.id.slice(-1);
+    selectedProcuctCounter = 0;
 
     var noCategorySelectedText = document.getElementById("no-category-selected")
 
@@ -27,52 +31,88 @@ function selectCategory(x) {
     }
 
     selectedCategory.classList.add("selected")
-}
 
-var selectedInput;
-var givenAmountInput = document.getElementById("given-amount-input")
+    var categorieInputs = selectedCategoryProducts.querySelectorAll("input")
 
-function clearInput() {
-
-    selectedInput.value = null;
+    categorieInputs[0].focus();
 
 }
 
-function setSelectedInput(input) {
+var categories = document.querySelectorAll(".category")
 
-    var allInputs = document.querySelectorAll("input");
 
-    for (let index = 0; index < allInputs.length; index++) {
-        allInputs[index].classList.remove("active")
+document.onkeydown = (keyDownEvent) => {
+
+
+    if (keyDownEvent.key == "ArrowLeft") {
+        selectCategory(categories[selectedCategoryID]);
     }
 
+    if (keyDownEvent.key == "ArrowRight") {
+        selectCategory(categories[selectedCategoryID]);
+    }
 
-    if (selectedInput == input) {
+    if (keyDownEvent.key == "KeyL") {
 
-        selectedInput.classList.remove("active")
-        selectedInput = givenAmountInput;
-        givenAmountInput.classList.add("active")
+        selectGivenAmountInput();
+    }
 
-    } else {
+    if (keyDownEvent.key == "ArrowDown") {
+        keyDownEvent.preventDefault();
 
-        selectedInput = input;
-        selectedInput.classList.add("active")
+        selectProduct("next")
+    }
 
+    if (keyDownEvent.key == "ArrowUp") {
+        keyDownEvent.preventDefault();
+
+        selectProduct("previous")
     }
 }
 
-function numPad(clickedValue) {
-    selectedInput.value += clickedValue;
+function selectGivenAmountInput() {
+    var givenAmountInput = document.getElementById("given-amount-input")
+
+    givenAmountInput.focus();
+
+    console.log("g")
 }
 
-function backSpace() {
+function selectProduct(direction) {
+    var selectedCategoryProducts = document.getElementById("category-products-" + selectedCategoryID);
+    var products = selectedCategoryProducts.querySelectorAll(".product-input input")
 
-    if (selectedInput.value.length > 1) {
+    if (direction == "next") {
 
-        var newValue = selectedInput.value.slice(0, -1);
-        selectedInput.value = newValue;
+        if (products.length - 1 == selectedProcuctCounter) {
 
-    } else {
-        selectedInput.value = null;
+            selectedProcuctCounter = 0;
+            products[selectedProcuctCounter].focus();
+
+        } else {
+
+            selectedProcuctCounter += 1;
+            products[selectedProcuctCounter].focus();
+
+        }
+
     }
+
+    if (direction == "previous") {
+
+        if (selectedProcuctCounter == 0) {
+
+            selectedProcuctCounter = products[products.length - 1];
+            products[selectedProcuctCounter].focus();
+
+        } else {
+
+            selectedProcuctCounter -= 1;
+            products[selectedProcuctCounter].focus();
+
+        }
+
+    }
+
+    console.log("selected item number: " + selectedProcuctCounter)
 }

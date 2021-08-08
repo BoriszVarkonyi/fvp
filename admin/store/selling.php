@@ -25,7 +25,7 @@
                 <div>
                     <p>Adott:</p>
                     <div>
-                        <input type="number" name="" id="given-amount-input" onclick="setSelectedInput(this)" readonly>
+                        <input type="number" name="" id="given-amount-input">
                         <p>Ft</p>
                     </div>
                 </div>
@@ -36,20 +36,6 @@
                         <p>Ft</p>
                     </div>
                 </div>
-            </div>
-            <div id="numeric-pad">
-                <button onclick="numPad(1)">1</button>
-                <button onclick="numPad(2)">2</button>
-                <button onclick="numPad(3)">3</button>
-                <button onclick="numPad(4)">4</button>
-                <button onclick="numPad(5)">5</button>
-                <button onclick="numPad(6)">6</button>
-                <button onclick="numPad(7)">7</button>
-                <button onclick="numPad(8)">8</button>
-                <button onclick="numPad(9)">9</button>
-                <button onclick="backSpace()" class="small">Vissza</button>
-                <button onclick="numPad(0)">0</button>
-                <button onclick="clearInput()" class="small">Törlés</button>
             </div>
             <form action="">
                 <input type="text" readonly>
@@ -82,7 +68,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-2">
@@ -92,7 +78,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-3">
@@ -102,7 +88,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-4">
@@ -112,7 +98,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-5">
@@ -122,7 +108,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-6">
@@ -132,7 +118,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                     </div>
@@ -147,7 +133,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-8">
@@ -157,7 +143,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-9">
@@ -167,7 +153,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-10">
@@ -177,7 +163,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-11">
@@ -187,7 +173,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-12">
@@ -197,7 +183,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                     </div>
@@ -212,7 +198,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-14">
@@ -222,7 +208,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-15">
@@ -232,7 +218,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-16">
@@ -242,7 +228,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-17">
@@ -252,7 +238,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                         <div class="product" id="product-18">
@@ -262,7 +248,7 @@
                             </div>
 
                             <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                                <input type="number" class="product-input" name="" id="" placeholder="db">
                             </div>
                         </div>
                     </div>
@@ -275,13 +261,11 @@
             <div id="shopping-cart-list">
 
 
-
                 <div class="shopping-cart-item">
                     <div>
                         <p class="cart-item-name">Kifli</p>
-                        <input type="number" class="product-input" placeholder="db" onclick="setSelectedInput(this)" readonly>
+                        <p class="cart-item-quantity"><span>1</span> db</p>
                         <p class="cart-item-price">250 Ft</p>
-                        <button onclick="removeProduct(this)"><img src="/../assets/icons/delete-black.svg"></button>
                     </div>
                 </div>
 

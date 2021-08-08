@@ -52,6 +52,7 @@ if (isset($_POST['ujbevet'])) {
 
                 <a class="page-button primary" href="material.php?material_id=new">Új alapanyag</a>
                 <a class="page-button secondary" href="proceeds.php">Bevételezések</a>
+                <a class="page-button secondary" href="print-order.php">Rendelés</a>
             </div>
         </div>
         <div id="main-content">
