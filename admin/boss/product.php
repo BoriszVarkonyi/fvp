@@ -95,23 +95,20 @@ if (isset($_POST['save'])) {
 
         $query = "INSERT INTO `termekek`(`nev`, `kat_id`, `ar`, `leiras`, `kep`, `weben_van`, `recept`) VALUES ('$name','$category',$price,'$description','$pic_name',$product_visibility,'$recept')";
         $query_do = mysqli_query($connection, $query);
-    }
-    else{
+    } else {
 
         if ($pic_name == '') {
 
             $query = "UPDATE `termekek` SET `nev`='$name',`kat_id`='$category',`ar`='$price',`leiras`='$description',`weben_van`=$product_visibility,`recept`='$recept' WHERE `id` = $termek_id";
             $query_do = mysqli_query($connection, $query);
-        }
-        else{
+        } else {
 
             $query_del_pic = "SELECT kep FROM `termekek` WHERE `id` = $termek_id";
             $query_del_pic_do = mysqli_query($connection, $query_del_pic);
 
-            if ($row = mysqli_fetch_assoc($query_del_pic_do)){
+            if ($row = mysqli_fetch_assoc($query_del_pic_do)) {
 
                 $del_pic_name = $row['kep'];
-
             }
 
             unlink($del_pic_name);
@@ -119,13 +116,27 @@ if (isset($_POST['save'])) {
             $query = "UPDATE `termekek` SET `nev`='$name',`kat_id`='$category',`ar`='$price',`leiras`='$description',`kep`='$pic_name',`weben_van`=$product_visibility,`recept`='$recept' WHERE `id` = $termek_id";
             $query_do = mysqli_query($connection, $query);
         }
-
-
-
     }
 
     header("Location: products.php");
+}
 
+if (isset($_POST['del_product'])) {
+
+    $query_del_pic = "SELECT kep FROM `termekek` WHERE `id` = $termek_id";
+    $query_del_pic_do = mysqli_query($connection, $query_del_pic);
+
+    if ($row = mysqli_fetch_assoc($query_del_pic_do)) {
+
+        $del_pic_name = $row['kep'];
+    }
+
+    unlink($del_pic_name);
+
+    $query = "DELETE FROM `termekek` WHERE `id` = $termek_id";
+    $query_do = mysqli_query($connection, $query);
+
+    header("Location: products.php");
 }
 
 ?>
@@ -153,16 +164,37 @@ if (isset($_POST['save'])) {
         <a href="products.php" class="navigation-option">TERMÉKEK</a>
     </nav>
     <main>
+
+        <?php
+
+        if ($termek_id != 'new') {
+
+            $json_query = "SELECT * FROM `termekek` WHERE `id` = $termek_id";
+            $json_query_do = mysqli_query($connection, $json_query);
+
+            if ($row = mysqli_fetch_assoc($json_query_do)) {
+
+                $nev = $row['nev'];
+                $kategoria = $row['kat_id'];
+                $ar = $row['ar'];
+                $leiras = $row['leiras'];
+                $weben_van = $row['weben_van'];
+                $json_recept = json_decode($row['recept']);
+            }
+        }
+
+        ?>
+
         <div id="main-top">
-            <p id="page-title">Termék nev vagy "Új termék" ha új!!!</p>
+            <p id="page-title"><?php echo $qu = ($termek_id == 'new') ? 'Új termék hozzáadása' : $nev ?></p>
             <div id="page-buttons">
                 <button class="page-button primary" name="save" type="submit" form="product-form">Mentés</button>
 
-                <form action="">
-                    <button class="page-button secondary" type="submit">Törlés</button>
+                <form action="" method="post">
+                    <button class="page-button secondary" name="del_product" type="submit">Törlés</button>
                 </form>
 
-                <button class="page-button secondary">Vissza</button>
+                <button class="page-button secondary" onclick="window.location.href='products.php'">Vissza</button>
             </div>
         </div>
         <div id="main-content">
@@ -170,26 +202,6 @@ if (isset($_POST['save'])) {
                 <div class="form-column">
 
                     <p class="form-column-title">ADATOK</p>
-
-                    <?php
-
-                    if ($termek_id != 'new') {
-
-                        $json_query = "SELECT * FROM `termekek` WHERE `id` = $termek_id";
-                        $json_query_do = mysqli_query($connection, $json_query);
-
-                        if ($row = mysqli_fetch_assoc($json_query_do)) {
-
-                            $nev = $row['nev'];
-                            $kategoria = $row['kat_id'];
-                            $ar = $row['ar'];
-                            $leiras = $row['leiras'];
-                            $weben_van = $row['weben_van'];
-                            $json_recept = json_decode($row['recept']);
-                        }
-                    }
-
-                    ?>
 
                     <label for="product-name">NÉV</label>
                     <input type="text" value="<?php echo $qu = ($termek_id == 'new') ? '' : $nev ?>" name="name" id="product-name">
@@ -233,6 +245,8 @@ if (isset($_POST['save'])) {
                         <label for="product-visible">Látható</label>
                         <input type="radio" name="product-visibility" id="product-not-visible" value="0" <?php echo $qu = ($weben_van == 0) ? 'checked' : '' ?> />
                         <label for="product-not-visible">Nem látható</label>
+                        <input type="radio" name="product-visibility" id="product-highlighted-visible" value="2" <?php echo $qu = ($weben_van == 2) ? 'checked' : '' ?> />
+                        <label for="product-highlighted-visible">Kiemelten látható</label>
                     </div>
 
                 </div>
@@ -268,9 +282,13 @@ if (isset($_POST['save'])) {
                                 $id = $row['id'];
                                 $nev = $row['anyagnev'];
 
-                                $key = array_search($id, array_column($json_recept, 'id'));
+                                if ($termek_id != 'new') {
+                                    $key = array_search($id, array_column($json_recept, 'id'));
 
-                                $mennyiseg = $json_recept[$key]->mennyiseg;
+                                    $mennyiseg = $json_recept[$key]->mennyiseg;
+                                }
+
+
                                 $mertekegyseg = $row['mertekegyseg'];
 
 

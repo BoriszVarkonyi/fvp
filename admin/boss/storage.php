@@ -83,23 +83,6 @@ if (isset($_POST['ujbevet'])) {
 
                     ?>
 
-<?php
-
-                        if ($termek_id == 'new') {
-                            echo 'checked';
-                        }
-                        else{
-
-                            if ($weben_van == 1) {
-                                echo 'checked';
-                            }
-
-
-                        }
-
-
-                        ?>
-
                         <tr onclick="window.location.href='material.php?material_id=<?php echo $id; ?>'">
                             <td>
                                 <p><?php echo $nev ?></p>

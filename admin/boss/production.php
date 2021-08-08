@@ -1,5 +1,35 @@
+<?php include "../../includes/db.php" ?>
+<?php include "../../includes/functions.php" ?>
+<?php ob_start(); ?>
+<?php session_start(); ?>
+
+<?php
+
+$date = $_GET['date'];
+
+$query_boltok = "SELECT * FROM `gyartas` WHERE `datum` = '$date'";
+$query_boltok_do = mysqli_query($connection, $query_boltok);
+
+if ($row = mysqli_fetch_assoc($query_boltok_do)) {
+
+    $adat = json_decode($row['adat']);
+}
+
+if (isset($_POST['del_prod'])) {
+    
+    $query = "DELETE FROM `gyartas` WHERE `datum` = '$date'";
+    $query_do = mysqli_query($connection, $query);
+
+    header("Location: productions.php");
+
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +37,7 @@
     <link rel="stylesheet" href="/../css/admin-base-style.min.css">
     <title>Gyártás</title>
 </head>
+
 <body class="production">
     <header>
         <p>BOSS</p>
@@ -20,12 +51,12 @@
     </nav>
     <main>
         <div id="main-top">
-            <p id="page-title">Új gyártás / Gyártás dátuma</p>
+            <p id="page-title"><?php echo $date ?></p>
             <div id="page-buttons">
                 <button class="page-button primary">Új kategória</button>
                 <a class="page-button secondary" href="print-production.php">Nyomtatás</a>
-                <form action="">
-                    <button class="page-button secondary">Törlés</button>
+                <form action="" method="post">
+                    <button type="submit" name="del_prod" class="page-button secondary">Törlés</button>
                 </form>
                 <a class="page-button secondary" href="productions.php">Vissza</a>
             </div>
@@ -50,18 +81,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr onclick="window.location.href='store-production.php'">
-                        <td>
-                            <p>Helo</p>
-                        </td>
-                        <td>
-                            <p>Kész</p>
-                        </td>
-                    </tr>
+                    <?php
+
+                    foreach ($adat as $key => $value) {
+
+                    ?>
+                        <tr onclick="window.location.href='store-production.php?id=<?php echo $value->id; ?>&date=<?php echo $date ?>'">
+                            <td>
+                                <p><?php echo $value->name; ?></p>
+                            </td>
+                            <td>
+                                <p><?php echo secStatusConverter($value->status); ?></p>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>
     </main>
     <script src="/../js/main-script.js"></script>
 </body>
+
 </html>
