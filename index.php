@@ -25,7 +25,7 @@
     </nav>
     <main>
         <div id="show-off">
-            <p>g</p>
+            <a href="#main-content-wrapper" id="go-down"><img src="/../assets/icons/expand-more-white.svg" alt=""></a>
         </div>
         <div id="main-content-wrapper">
 
@@ -45,26 +45,49 @@
                         <h2>Kategória 1</h2>
                         <div class="section-content">
 
-                            <div class="section-item">
-                                <h3>Kenyér</h3>
+                        <div class="section-item">
+                            <h3>Kenyér</h3>
+                            <div class="section-item-picture-wrapper">
+                                <img src="/../assets/images/bread-1.jpg" alt="">
+                                <img src="/../assets/images/bread-2.jpg" alt="">
                             </div>
-
-
-                            <div class="section-item">
-                                <h3>Kenyér</h3>
-                                <div class="section-item-picture-wrapper">
-                                    <img src="/../assets/images/bread-1.jpg" alt="">
-                                    <img src="/../assets/images/bread-2.jpg" alt="">
-                                </div>
-                                <div class="section-item-details">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                                </div>
+                            <div class="section-item-details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
+                        </div>
 
-
-                            <div class="section-item">
-                                <h3>Kenyér</h3>
+                        <div class="section-item">
+                            <h3>Kenyér</h3>
+                            <div class="section-item-picture-wrapper">
+                                <img src="/../assets/images/bread-1.jpg" alt="">
+                                <img src="/../assets/images/bread-2.jpg" alt="">
                             </div>
+                            <div class="section-item-details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
+                            </div>
+                        </div>
+
+                        <div class="section-item">
+                            <h3>Kenyér</h3>
+                            <div class="section-item-picture-wrapper">
+                                <img src="/../assets/images/bread-1.jpg" alt="">
+                                <img src="/../assets/images/bread-2.jpg" alt="">
+                            </div>
+                            <div class="section-item-details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
+                            </div>
+                        </div>
+
+                        <div class="section-item">
+                            <h3>Kenyér</h3>
+                            <div class="section-item-picture-wrapper">
+                                <img src="/../assets/images/bread-1.jpg" alt="">
+                                <img src="/../assets/images/bread-2.jpg" alt="">
+                            </div>
+                            <div class="section-item-details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
+                            </div>
+                        </div>
 
                         </div>
                     </section>
