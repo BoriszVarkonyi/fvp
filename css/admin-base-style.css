@@ -15,14 +15,8 @@
     --c-orange: rgb(255, 136, 0);
     --c-brown: rgb(143, 38, 12);
 
-    --light: Poppins-Light;
 	--regular: Poppins-Regular;
 	--bold: Poppins-SemiBold;
-}
-
-@font-face {
-	font-family: Poppins-Light;
-	src: url(../assets/fonts/Poppins-Light.ttf);
 }
 
 @font-face {
