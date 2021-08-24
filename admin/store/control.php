@@ -119,7 +119,7 @@ if (isset($_POST['save'])) {
             </table>
         </form>
     </main>
-    <script src="/../js/main-script.js"></script>
+    <script src="/../js/admin-main-script.js"></script>
 </body>
 
 </html>

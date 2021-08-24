@@ -67,7 +67,7 @@ if (isset($_POST['nyit'])) {
             <button type="submit" name="nyit" class="page-button primary">Nyitás</button>
         </form>
     </main>
-    <script src="/../js/main-script.js"></script>
+    <script src="/../js/admin-main-script.js"></script>
 </body>
 
 </html>
