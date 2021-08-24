@@ -132,7 +132,7 @@
 
         </div>
     </main>
-    <footer></footer>
+    <footer>zhrtjuj</footer>
     <script src="/../js/main-script.js"></script>
 </body>
 </html>
