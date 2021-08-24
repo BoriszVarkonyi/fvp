@@ -50,7 +50,7 @@
                 <tbody>
                     <?php
 
-                    $query = "SELECT * FROM `termekek`";
+                    $query = "SELECT * FROM `termekek` ORDER BY `kat_id`";
                     $query_do = mysqli_query($connection, $query);
 
                     if (mysqli_num_rows($query_do) != 0) {

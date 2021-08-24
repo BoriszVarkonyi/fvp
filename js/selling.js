@@ -45,16 +45,20 @@ document.onkeydown = (keyDownEvent) => {
 
 
     if (keyDownEvent.key == "ArrowLeft") {
-        selectCategory(categories[selectedCategoryID]);
+        selectCategory(categories[selectedCategoryID  - 2]);
     }
 
     if (keyDownEvent.key == "ArrowRight") {
         selectCategory(categories[selectedCategoryID]);
     }
 
-    if (keyDownEvent.key == "KeyL") {
+    if (keyDownEvent.key == "/") {
 
         selectGivenAmountInput();
+    }
+    if (keyDownEvent.key == "*") {
+
+        selectCategory(categories[0]);
     }
 
     if (keyDownEvent.key == "ArrowDown") {

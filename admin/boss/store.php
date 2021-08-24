@@ -240,10 +240,10 @@ if (isset($_POST['del_shop'])) {
                                         <p><?php echo $day ?></p>
                                     </td>
                                     <td>
-                                        <input type="time" value="<?php echo $nyitvatartas_toltve[$daycounter]->nyitas ?>" name="<?php echo $key . 'nyit' ?>" id="">
+                                        <input type="time" value="<?php echo $azt = ($bolt_id != 'new') ? $nyitvatartas_toltve[$daycounter]->nyitas : '' ?>" name="<?php echo $key . 'nyit' ?>" id="">
                                     </td>
                                     <td>
-                                        <input type="time" value="<?php echo $nyitvatartas_toltve[$daycounter]->zaras ?>" name="<?php echo $key . 'zar' ?>" id="">
+                                        <input type="time" value="<?php echo $azt = ($bolt_id != 'new') ? $nyitvatartas_toltve[$daycounter]->zaras : '' ?>" name="<?php echo $key . 'zar' ?>" id="">
                                     </td>
                                 </tr>
 

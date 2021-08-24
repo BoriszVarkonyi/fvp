@@ -76,7 +76,7 @@ if ($id != 'new') {
             <div id="page-buttons">
                 <button type="submit" form="material-form" name="save_material" class="page-button primary">Hozzáadás</button>
                 <form action="" method="post"><button type="submit" name="torles" class="page-button secondary">Törlés</button></form>
-                <button class="page-button secondary">Vissza</button>
+                <a class="page-button secondary" href="storage.php">Vissza</a>
             </div>
         </div>
         <div id="main-content">

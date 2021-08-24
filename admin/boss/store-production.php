@@ -160,7 +160,7 @@ if (isset($_POST['save'])) {
                             </td>
                             <td>
                                 <div>
-                                    <input type="number" value="<?php echo $qu = (isset($adat[$key]->termekek[$keysec])) ? $adat[$key]->termekek[$keysec]->mennyiseg : '' ?>" name="<?php echo $id ?>" id="">
+                                    <input type="float" value="<?php echo $qu = (isset($adat[$key]->termekek[$keysec])) ? $adat[$key]->termekek[$keysec]->mennyiseg : '' ?>" name="<?php echo $id ?>" id="">
                                     <p>darab</p>
                                 </div>
                             </td>

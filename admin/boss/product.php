@@ -10,7 +10,31 @@ if (isset($_POST['save'])) {
 
     $name = $_POST['name'];
     $category = $_POST['category'];
-    $price = $_POST['price'];
+
+    $shops = [];
+
+    $shop_query = "SELECT * FROM `boltok`";
+    $shop_query_do = mysqli_query($connection, $shop_query);
+
+    while ($row = mysqli_fetch_assoc($shop_query_do)) {
+
+        $shopname = $row['nev'];
+        $shopid = $row['id'];
+
+        $postname = "price-" . $shopid;
+
+        $price = $_POST[$postname];
+
+        $shop_with_price = new stdClass;
+
+        $shop_with_price->id = $shopid;
+        $shop_with_price->price = $price;
+
+        array_push($shops, $shop_with_price);
+    }
+
+    $shops_json = json_encode($shops, JSON_UNESCAPED_UNICODE);
+
     $description = $_POST['description'];
 
     //KÉP
@@ -93,13 +117,13 @@ if (isset($_POST['save'])) {
 
     if ($termek_id == 'new') {
 
-        $query = "INSERT INTO `termekek`(`nev`, `kat_id`, `ar`, `leiras`, `kep`, `weben_van`, `recept`) VALUES ('$name','$category',$price,'$description','$pic_name',$product_visibility,'$recept')";
+        $query = "INSERT INTO `termekek`(`nev`, `kat_id`, `ar`, `leiras`, `kep`, `weben_van`, `recept`) VALUES ('$name','$category','$shops_json','$description','$pic_name',$product_visibility,'$recept')";
         $query_do = mysqli_query($connection, $query);
     } else {
 
         if ($pic_name == '') {
 
-            $query = "UPDATE `termekek` SET `nev`='$name',`kat_id`='$category',`ar`='$price',`leiras`='$description',`weben_van`=$product_visibility,`recept`='$recept' WHERE `id` = $termek_id";
+            $query = "UPDATE `termekek` SET `nev`='$name',`kat_id`='$category',`ar`='$shops_json',`leiras`='$description',`weben_van`=$product_visibility,`recept`='$recept' WHERE `id` = $termek_id";
             $query_do = mysqli_query($connection, $query);
         } else {
 
@@ -113,7 +137,7 @@ if (isset($_POST['save'])) {
 
             unlink($del_pic_name);
 
-            $query = "UPDATE `termekek` SET `nev`='$name',`kat_id`='$category',`ar`='$price',`leiras`='$description',`kep`='$pic_name',`weben_van`=$product_visibility,`recept`='$recept' WHERE `id` = $termek_id";
+            $query = "UPDATE `termekek` SET `nev`='$name',`kat_id`='$category',`ar`='$shops_json',`leiras`='$description',`kep`='$pic_name',`weben_van`=$product_visibility,`recept`='$recept' WHERE `id` = $termek_id";
             $query_do = mysqli_query($connection, $query);
         }
     }
@@ -176,7 +200,7 @@ if (isset($_POST['del_product'])) {
 
                 $nev = $row['nev'];
                 $kategoria = $row['kat_id'];
-                $ar = $row['ar'];
+                $ar = json_decode($row['ar']);
                 $leiras = $row['leiras'];
                 $weben_van = $row['weben_van'];
                 $json_recept = json_decode($row['recept']);
@@ -228,8 +252,28 @@ if (isset($_POST['del_product'])) {
                         </div>
                     </div>
 
-                    <label for="product-price">ÁR / DARAB</label>
-                    <input type="number" value="<?php echo $qu = ($termek_id == 'new') ? '' : $ar ?>" name="price" id="product-price">
+                    <!--ÁRAZÁS BOLTOKRA BONTVA-->
+
+                    <?php
+
+                    $shop_query = "SELECT * FROM `boltok`";
+                    $shop_query_do = mysqli_query($connection, $shop_query);
+
+                    while ($row = mysqli_fetch_assoc($shop_query_do)) {
+
+                        $shopname = $row['nev'];
+                        $shopid = $row['id'];
+
+                        if ($termek_id != 'new') {
+                            $key = array_search($shopid, array_column($ar, 'id'));
+                        }
+
+                    ?>
+
+                        <label for="product-price-<?php echo $shopid ?>"><?php echo $shopname ?> ár</label>
+                        <input type="number" value="<?php echo $qu = ($termek_id == 'new') ? '' : $ar[$key]->price ?>" name="price-<?php echo $shopid ?>" id="product-price-<?php echo $shopid ?>">
+
+                    <?php } ?>
 
                     <label for="product-description">LEÍRÁS</label>
                     <textarea name="description" id="product-description" cols="20" rows="5"><?php echo $qu = ($termek_id == 'new') ? '' : $leiras ?></textarea>
@@ -241,7 +285,7 @@ if (isset($_POST['del_product'])) {
 
                     <label for="product-visibility">WEBOLDAL LÁTHATÓSÁG</label>
                     <div class="option_container">
-                        <input type="radio" name="product-visibility" id="product-visible" value="1" <?php echo $qu = ($termek_id == 'new') ? 'checked' : ($weben_van == 1) ? 'checked' : '' ?> />
+                        <input type="radio" name="product-visibility" id="product-visible" value="1" <?php echo $qu = ($termek_id == 'new') ? 'checked' : (($weben_van == 1) ? 'checked' : '') ?> />
                         <label for="product-visible">Látható</label>
                         <input type="radio" name="product-visibility" id="product-not-visible" value="0" <?php echo $qu = ($weben_van == 0) ? 'checked' : '' ?> />
                         <label for="product-not-visible">Nem látható</label>

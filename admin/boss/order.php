@@ -1,5 +1,11 @@
+<?php include "../../includes/db.php" ?>
+<?php include "../../includes/functions.php" ?>
+<?php ob_start(); ?>
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +14,7 @@
     <link rel="stylesheet" href="/../css/admin-base-print-style.min.css" media="print">
     <title>Rendelés</title>
 </head>
+
 <body class="storage">
     <header>
         <p>BOSS</p>
@@ -31,95 +38,45 @@
             <table class="order-table">
                 <thead>
                     <tr>
-                        <th><p>TERMÉK</p></th>
-                        <th><p>MENNYISÉG</p></th>
+                        <th>
+                            <p>TERMÉK</p>
+                        </th>
+                        <th>
+                            <p>MENNYISÉG</p>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <p>very longen névvvvvvv az jóóó vagy nem</p>
-                        </td>
-                        <td>
-                            <p>5</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>ÍKeszike</p>
-                        </td>
-                        <td>
-                            <p>5</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>ÍKeszike</p>
-                        </td>
-                        <td>
-                            <p>5</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>ÍKeszike</p>
-                        </td>
-                        <td>
-                            <p>5</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>ÍKeszike</p>
-                        </td>
-                        <td>
-                            <p>5</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>ÍKeszike</p>
-                        </td>
-                        <td>
-                            <p>5</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>ÍKeszike</p>
-                        </td>
-                        <td>
-                            <p>5</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>ÍKeszike</p>
-                        </td>
-                        <td>
-                            <p>5</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>ÍKeszike</p>
-                        </td>
-                        <td>
-                            <p>5</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>ÍKeszike</p>
-                        </td>
-                        <td>
-                            <p>5</p>
-                        </td>
-                    </tr>
+                    <?php
+
+                    $query = "SELECT * FROM `keszlet`";
+                    $query_do = mysqli_query($connection, $query);
+
+                    while ($row = mysqli_fetch_assoc($query_do)) {
+
+                        $id = $row['id'];
+                        $nev = $row['anyagnev'];
+                        $mennyiseg = $row['mennyiseg'];
+                        $mertekegyseg = $row['mertekegyseg'];
+                        $kell_lennie = $row['kell_lennie'];
+                    ?>
+                        <tr>
+                            <td>
+                                <p><?php echo $nev ?></p>
+                            </td>
+                            <td>
+                                <p><?php echo ( $kell_lennie - $mennyiseg ). " " . $mertekegyseg ?></p>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+
+                    ?>
                 </tbody>
             </table>
         </div>
     </main>
     <script src="/../js/main-script.js"></script>
 </body>
+
 </html>

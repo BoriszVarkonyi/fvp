@@ -71,9 +71,9 @@ foreach ($adat as $key => $bolt) {
                         <th>
                             <p>TERMÉK</p>
                         </th>
-                        <!-- <th>
+                        <th>
                             <p>MENNYISÉG</p>
-                        </th> -->
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,9 +86,9 @@ foreach ($adat as $key => $bolt) {
                             <td>
                                 <p><?php echo $value->name; ?></p>
                             </td>
-                            <!-- <td>
-                                <p>Status</p>
-                            </td> -->
+                            <td>
+                                <p><?php echo $value->mennyiseg; ?></p>
+                            </td>
                         </tr>
                     <?php
                     }

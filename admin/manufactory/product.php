@@ -5,6 +5,8 @@
 
 <?php
 
+$date = $_GET['date'];
+
 $termek_id = $_GET['termek_id'];
 $quantity = $_GET['quantity'];
 
@@ -36,7 +38,7 @@ $quantity = $_GET['quantity'];
                 <form action="">
                     <button class="page-button primary" type="submit">Sztornó</button>
                 </form>
-                <a class="page-button secondary" href="production.php">Vissza</a>
+                <a class="page-button secondary" href="production.php?date=<?php echo $date ?>">Vissza</a>
             </div>
             <div id="page-details">
                 <div>
@@ -74,13 +76,17 @@ $quantity = $_GET['quantity'];
 
                     foreach ($adat as $key => $value) {
 
+                        if ($value->mennyiseg == 0) {
+                            continue;
+                        }
+
                     ?>
                         <tr>
                             <td>
                                 <p><?php echo $value->nev ?></p>
                             </td>
                             <td>
-                                <p><?php echo ($value->mennyiseg * $quantity) ?></p>
+                                <p><?php echo round(($value->mennyiseg * $quantity), 2) . " " . $value->mertekegyseg ?></p>
                             </td>
                         </tr>
 
