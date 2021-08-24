@@ -26,6 +26,17 @@
     <main>
         <div id="show-off">
             <a href="#main-content-wrapper" id="go-down"><img src="/../assets/icons/expand-more-white.svg" alt=""></a>
+            <div id="show-off-content">
+                <div>
+                    <p>FARKAS</p>
+                    <p>VADKOVÁSZOS</p>
+                    <p>PÉKSÉG</p>
+                </div>
+                <div>
+                    <p><span>12</span> Üzlet</p>
+                    <p><span>157</span> Egyedi Termék</p>
+                </div>
+            </div>
         </div>
         <div id="main-content-wrapper">
 

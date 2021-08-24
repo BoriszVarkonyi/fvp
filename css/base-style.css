@@ -15,14 +15,9 @@
     --c-orange: rgb(255, 136, 0);
     --c-brown: rgb(143, 38, 12);
 
-    --light: Poppins-Light;
 	--regular: Poppins-Regular;
 	--bold: Poppins-SemiBold;
-}
-
-@font-face {
-	font-family: Poppins-Light;
-	src: url(../assets/fonts/Poppins-Light.ttf);
+	--extra-bold: Poppins-ExtraBold;
 }
 
 @font-face {
@@ -33,6 +28,11 @@
 @font-face {
 	font-family: Poppins-SemiBold;
 	src: url(../assets/fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+	font-family: Poppins-ExtraBold;
+	src: url(../assets/fonts/Poppins-ExtraBold.ttf);
 }
 
 body, html {	/* Gives placeholder background and default font */
@@ -121,7 +121,7 @@ h1, h2, h3 {
 header {
 	width: 100%;
 	height: 70px;
-	margin: 75px auto;
+	margin: 0 auto;
 	box-sizing: border-box;
 	background: rgb(33,31,32);
 	background: linear-gradient(90deg, rgba(33,31,32,0) 0%, rgba(33,31,32,0) 20%, var(--c-black) 40%, var(--c-black) 50%, var(--c-black) 60%, rgba(33,31,32,0) 80%, rgba(33,31,32,0) 100%);
@@ -142,7 +142,7 @@ header.scrolled  {
 	top: 0;
 	background: rgb(33,31,32);
 	background: linear-gradient(90deg, var(--c-black) 0%, var(--c-black) 40%, var(--c-black) 50%, var(--c-black) 60%, var(--c-black) 100%);
-	box-shadow: 4px 3px 3px 0px rgba(0,0,0,0.35);
+	box-shadow: 4px 3px 10px 5px rgb(0 0 0 / 20%);
 }
 
 nav {
@@ -185,8 +185,125 @@ main {
 }
 
 #show-off {
-	height: calc(100vh - 210px);
+	height: calc(100vh - 70px);
 	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#show-off-content {
+	display: flex;
+	flex-wrap: wrap;
+	color: white;
+	position: relative;
+}
+
+#show-off-content > div:first-of-type {
+	color: white;
+	font-size: 200px;
+	line-height: 1.1;
+	font-family: var(--extra-bold);
+	flex: 1 1 800px;
+}
+
+#show-off-content > div:first-of-type p {
+	position: relative;
+	opacity: 0;
+	-webkit-animation: .6s forwards ease-in-out 0s 1 slideInFromLeft;
+	animation: .6s forwards ease-in-out 0s 1 slideInFromLeft;
+}
+
+#show-off-content > div:first-of-type p:nth-child(1) {
+	-webkit-animation-delay: 0 !important;
+	animation-delay: 0 !important;
+}
+
+#show-off-content > div:first-of-type p:nth-child(2) {
+	-webkit-animation-delay: .3s !important;
+	animation-delay: .3s !important;
+}
+
+#show-off-content > div:first-of-type p:nth-child(3) {
+	-webkit-animation-delay: .6s !important;
+	animation-delay: .6s !important;
+}
+
+@-webkit-keyframes slideInFromLeft {
+	0% {
+		left: -200px;
+		opacity: 0;
+	}
+	100% {
+		left: 0px;
+		opacity: 1;
+	}
+}
+
+@keyframes slideInFromLeft {
+	0% {
+		left: -200px;
+		opacity: 0;
+	}
+	100% {
+		left: 0px;
+		opacity: 1;
+	}
+}
+
+#show-off-content > div:last-of-type {
+	color: white;
+	font-size: 30px;
+	line-height: 1.1;
+	font-family: var(--bold);
+	position: absolute;
+	right: 0;
+	top: 32px;
+	flex: 1 1 200px;
+}
+
+#show-off-content > div:last-of-type p {
+	position: relative;
+	opacity: 0;
+	-webkit-animation: .6s forwards ease-in-out 0s 1 slideInFromRight;
+	animation: .6s forwards ease-in-out 0s 1 slideInFromRight;
+	white-space: nowrap;
+}
+
+#show-off-content > div:last-of-type p span {
+	color: var(--c-primary);
+}
+
+#show-off-content > div:last-of-type p:nth-child(1) {
+	-webkit-animation-delay: .6s !important;
+	animation-delay: .6s !important;
+}
+
+#show-off-content > div:last-of-type p:nth-child(2) {
+	-webkit-animation-delay: .9s !important;
+	animation-delay: .9s !important;
+}
+
+@-webkit-keyframes slideInFromRight {
+	0% {
+		right: -200px;
+		opacity: 0;
+	}
+	100% {
+		right: 0px;
+		opacity: 1;
+	}
+}
+
+@keyframes slideInFromRight {
+	0% {
+		right: -200px;
+		opacity: 0;
+	}
+	100% {
+		right: 0px;
+		opacity: 1;
+	}
 }
 
 #go-down {
@@ -275,16 +392,19 @@ h3 {
 	position: relative;
 	width: 200px;
 	height: 200px;
+	-o-object-fit: cover;
 	object-fit: cover;
 }
 
 
 .section-item-picture-wrapper img:first-of-type {
+	-webkit-clip-path: polygon(0 0, 100% 0%, calc(100% - 50px) 100%, 0% 100%);
 	clip-path: polygon(0 0, 100% 0%, calc(100% - 50px) 100%, 0% 100%);
 	margin-right: -25px;
 }
 
 .section-item-picture-wrapper img:last-of-type {
+	-webkit-clip-path: polygon(50px 0, 100% 0%, 100% 100%, 0 100%);
 	clip-path: polygon(50px 0, 100% 0%, 100% 100%, 0 100%);
 	margin-left: -25px;
 }
@@ -298,8 +418,6 @@ h3 {
     left: 0;
 	z-index: 0;
 	background: rgba(0, 0, 0, 0.5);
-	background: -webkit-radial-gradient(bottom left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-	background: -moz-radial-gradient(bottom left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 	background: radial-gradient(to top right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
