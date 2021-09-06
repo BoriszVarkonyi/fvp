@@ -495,11 +495,6 @@ thead {
 	text-transform: uppercase;
 }
 
-/* Makes Table Header elements not sticky */
-thead.no-stick th {
-	position: relative !important;
-}
-
 /* Makes Table Header hover not change the cursor type */
 thead tr {
 	cursor: default !important;
@@ -529,9 +524,6 @@ tbody.no-scale tr.selected {
 th {
     font-weight: normal !important;
 	position: relative;
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
 	background-color: var(--c-primary);
     color: white;
     padding: 5px 0;
