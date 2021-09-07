@@ -5,6 +5,7 @@ const openNavButton = document.getElementById("open-nav-button");
 const closeNavButton = document.getElementById("close-nav-button");
 
 var isMobileNavOpen = false;
+var isIntersecting;
 
 const showOffOptions = {
     rootMargin: "-145px 0px 0px 0px"
@@ -14,11 +15,16 @@ const showOffObserver = new IntersectionObserver(function (entries, showOffObser
     entries.forEach(entry => {
 
         if (!entry.isIntersecting) {
-            header.classList.add("scrolled")
+
+            header.classList.add("scrolled");
+
+            isIntersecting = false;
 
         } else if (entry.isIntersecting && !isMobileNavOpen) {
 
-            header.classList.remove("scrolled")
+            header.classList.remove("scrolled");
+
+            isIntersecting = true;
         }
 
     })
@@ -29,8 +35,8 @@ showOffObserver.observe(showOff);
 function openMobileNavigation() {
     isMobileNavOpen = true;
 
-    header.classList.add("scrolled")
-    mobileNav.classList.remove("collapsed")
+    header.classList.add("scrolled");
+    mobileNav.classList.remove("collapsed");
 
     openNavButton.classList.toggle("hidden");
     closeNavButton.classList.toggle("hidden");
@@ -42,14 +48,14 @@ function closeMobileNavigation() {
     openNavButton.classList.toggle("hidden");
     closeNavButton.classList.toggle("hidden");
 
-    mobileNav.classList.add("collapsed")
+    mobileNav.classList.add("collapsed");
 
-    if (showOffObserver.isIntersecting) {
+    if (!isIntersecting) {
 
-        header.classList.add("scrolled")
+        header.classList.add("scrolled");
 
-    } else if (!showOffObserver.isIntersecting) {
+    } else {
 
-        header.classList.remove("scrolled")
+        header.classList.remove("scrolled");
     }
 }

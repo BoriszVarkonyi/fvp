@@ -57,7 +57,7 @@ if (isset($_POST['save'])) {
 
 <body class="production">
     <header>
-        <p>BOSS</p>
+        <p>FŐNÖK</p>
         <button id="logout-button">Kilépés</button>
     </header>
     <nav>

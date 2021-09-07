@@ -8,17 +8,11 @@
     <link rel="stylesheet" href="/../css/admin-base-print-style.min.css">
     <title>Gyártás nyomtatás</title>
 </head>
-<body class="production">
+<body class="no-nav">
     <header>
-        <p>FŐNÖK</p>
+        <p>ÜZEM</p>
         <button id="logout-button">Kilépés</button>
     </header>
-    <nav>
-        <a href="stores.php" class="navigation-option">ÜZLETEK</a>
-        <a href="productions.php" class="navigation-option">GYÁRTÁS</a>
-        <a href="storage.php" class="navigation-option">KÉSZLET</a>
-        <a href="products.php" class="navigation-option">TERMÉKEK</a>
-    </nav>
     <main>
         <div id="main-top">
             <p id="page-title">Gyártás nyomtatás</p>
@@ -35,7 +29,129 @@
 
                 <div class="paper-content">
                     <div class="store-wrapper">
-                        <p class="store-name">ÜZLET NEVE hosszú neve vaan aaaa  kjóóó</p>
+                        <p class="store-name">KAJAAA NEVE JÓ</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><p>ALAPANYAG</p></th>
+                                    <th><p>MENNYISÉG</p></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>very longen névvvvvvv az jóóó vagy nem</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="store-wrapper">
+                        <p class="store-name">KAJAAA NEVE JÓ</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><p>TERMÉK</p></th>
+                                    <th><p>MENNYISÉG</p></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>very longen névvvvvvv az jóóó vagy nem</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>ÍKeszike</p>
+                                    </td>
+                                    <td>
+                                        <p>5</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="store-wrapper">
+                        <p class="store-name">KAJAAA NEVE JÓ</p>
                         <table>
                             <thead>
                                 <tr>
@@ -128,129 +244,7 @@
                         </table>
                     </div>
                     <div class="store-wrapper">
-                        <p class="store-name">ÜZLET NEVE</p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th><p>TERMÉK</p></th>
-                                    <th><p>MENNYISÉG</p></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <p>very longen névvvvvvv az jóóó vagy nem</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>ÍKeszike</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="store-wrapper">
-                        <p class="store-name">ÜZLET NEVE</p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th><p>TERMÉK</p></th>
-                                    <th><p>MENNYISÉG</p></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <p>very longen névvvvvvv az jóóó vagy nem</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>ÍKeszike</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>ÍKeszike</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>ÍKeszike</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>ÍKeszike</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>ÍKeszike</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>ÍKeszike</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>ÍKeszike</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>ÍKeszike</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>ÍKeszike</p>
-                                    </td>
-                                    <td>
-                                        <p>5</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="store-wrapper">
-                        <p class="store-name">ÜZLET NEVE</p>
+                        <p class="store-name">KAJAAA NEVE JÓ</p>
                         <table>
                             <thead>
                                 <tr>
