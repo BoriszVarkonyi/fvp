@@ -78,7 +78,7 @@ if (isset($_POST['save'])) {
     $query_day_do = mysqli_query($connection, $query_day);
 
     if (mysqli_num_rows($query_day_do) == 0) {
-        
+
         $create_day_query = "INSERT INTO `bolt_napok`(`bolt_id`, `datum`, `statusz`) VALUES ($store_id,'$date',0)";
         $create_day_query_do = mysqli_query($connection, $create_day_query);
     }
@@ -101,7 +101,7 @@ if (isset($_POST['save'])) {
 
 <body class="production">
     <header>
-        <p>BOSS</p>
+        <p>FŐNÖK</p>
         <button id="logout-button">Kilépés</button>
     </header>
     <nav>

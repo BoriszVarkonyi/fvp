@@ -61,7 +61,7 @@ if ($id != 'new') {
 </head>
 <body class="storage">
     <header>
-        <p>BOSS</p>
+        <p>FŐNÖK</p>
         <button id="logout-button">Kilépés</button>
     </header>
     <nav>

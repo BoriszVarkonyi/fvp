@@ -178,7 +178,7 @@ if (isset($_POST['del_product'])) {
 
 <body class="product">
     <header>
-        <p>BOSS</p>
+        <p>FŐNÖK</p>
         <button id="logout-button">Kilépés</button>
     </header>
     <nav>

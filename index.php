@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/../css/base-style.min.css">
     <title>Farkas Vadkovászos Pékség</title>
+    <meta name="description" content="{Ide kéne egy leírás}">
 </head>
 <body>
     <header>
@@ -21,11 +22,11 @@
             </div>
             <div>
                 <a href="#stores" class="desktop-specific">Üzleteink</a>
-                <button id="open-nav-button" class="mobile-specific" onclick="openMobileNavigation()">
-                    <img src="/../assets/icons/menu-white.svg" alt="">
+                <button id="open-nav-button" class="mobile-specific" onclick="openMobileNavigation()" aria-label="Navigáció kinyitása">
+                    <img src="/../assets/icons/menu-white.svg" alt="Navigáció kinyitása ikon">
                 </button>
-                <button id="close-nav-button" class="mobile-specific hidden" onclick="closeMobileNavigation()">
-                    <img src="/../assets/icons/menu-white.svg" alt="">
+                <button id="close-nav-button" class="mobile-specific hidden" onclick="closeMobileNavigation()" aria-label="Navigáció bezárása">
+                    <img src="/../assets/icons/menu-white.svg" alt="Navigáció bezárása ikon">
                 </button>
             </div>
             <div>
@@ -54,15 +55,15 @@
 
                 <!--
                     <div class="show-off-highlight">
-                        <img src="/../assets/icons/priority-high-red.svg" alt="" class="highlight-icon">
+                        <img src="/../assets/icons/priority-high-red.svg" alt="{Cím}" class="highlight-icon">
                         <p>Újdonságok</p>
-                        <img src="/../assets/icons/chevron-right-black.svg" alt="" class="highlight-arrow">
+                        <img src="/../assets/icons/chevron-right-black.svg" alt="{Cím}" class="highlight-arrow">
                     </div>
                  -->
 
             </div>
 
-            <a href="#main-content-wrapper" id="go-down"><img src="/../assets/icons/expand-more-white.svg" alt=""></a>
+            <a href="#main-content-wrapper" id="go-down"><img src="/../assets/icons/expand-more-white.svg" alt="Tovább ikon">Tovább</a>
         </div>
         <div id="main-content-wrapper">
 
@@ -88,7 +89,7 @@
 
                         <div class="section-item highlight">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
@@ -96,7 +97,7 @@
 
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
@@ -104,7 +105,7 @@
 
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
@@ -112,7 +113,7 @@
 
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
@@ -120,9 +121,9 @@
 
                     </div>
                     <div class="content-footer">
-                        <button>
+                        <button aria-label="Többi megjelenítése">
                             <p>Többi megjelelenítése</p>
-                            <img src="/../assets/icons/visibility-red.svg" alt="">
+                            <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon">
                         </button>
                     </div>
                 </div>
@@ -136,93 +137,146 @@
                     <div class="content grid">
                         <div class="section-item">
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details store">
                                 <p>Cím: <span>1142 Budapest, Korong utca 211-213</span></p>
-                                <p>Tel.: <span>1142 Budapest, Korong utca 211-213</span></p>
+                                <p>Tel.: <span>+36 70 255 22 77</span></p>
                                 <p>Nyitvatartás:</p>
-                                <div>
-                                    <p>Nap</p>
-                                    <p>Idő</p>
-                                    <p>H.</p>
-                                    <p>14:00 - 15:00</p>
-                                </div>
-                                <button>Útvonalterv</button>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p>Hétfő</p>
+                                            </td>
+                                            <td>
+                                                <p>11:00 - 15:00</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Kedd</p>
+                                            </td>
+                                            <td>
+                                                <p>11:00 - 15:00</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Szerda</p>
+                                            </td>
+                                            <td>
+                                                <p>11:00 - 15:00</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Csütörtök</p>
+                                            </td>
+                                            <td>
+                                                <p>11:00 - 15:00</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Péntek</p>
+                                            </td>
+                                            <td>
+                                                <p>11:00 - 15:00</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Szombat</p>
+                                            </td>
+                                            <td>
+                                                <p>11:00 - 15:00</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Vasárnap</p>
+                                            </td>
+                                            <td>
+                                                <p>11:00 - 15:00</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
                         </div>
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
                         </div>
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
                         </div>
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
                         </div>
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
                         </div>
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
                         </div>
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
                         </div>
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
                         </div>
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
                         </div>
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>
                         </div>
                         <div class="section-item">
                             <h3>Kenyér</h3>
-                            <img src="/../assets/images/bread-1.jpg" alt="">
+                            <img src="/../assets/images/bread-1.jpg" alt="{Cím}">
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
                             </div>

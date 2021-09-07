@@ -16,7 +16,7 @@ if ($row = mysqli_fetch_assoc($query_boltok_do)) {
 }
 
 if (isset($_POST['del_prod'])) {
-    
+
     $query = "DELETE FROM `gyartas` WHERE `datum` = '$date'";
     $query_do = mysqli_query($connection, $query);
 
@@ -40,7 +40,7 @@ if (isset($_POST['del_prod'])) {
 
 <body class="production">
     <header>
-        <p>BOSS</p>
+        <p>FŐNÖK</p>
         <button id="logout-button">Kilépés</button>
     </header>
     <nav>
