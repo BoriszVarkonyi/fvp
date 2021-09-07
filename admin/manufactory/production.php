@@ -24,6 +24,8 @@ foreach ($adat as $key => $bolt) {
         if (!isset($osszesitett_termek[$termek->id])) {
 
             $osszesitett_termek[$termek->id] = new stdClass();
+            $osszesitett_termek[$termek->id]->id = $termek->id;
+            $osszesitett_termek[$termek->id]->kat = $termek->kat;
             $osszesitett_termek[$termek->id]->name = $termek->nev;
             $osszesitett_termek[$termek->id]->mennyiseg = $termek->mennyiseg;
         } else {
@@ -32,6 +34,8 @@ foreach ($adat as $key => $bolt) {
     }
 }
 
+
+//print_r($osszesitett_termek);
 ?>
 
 <!DOCTYPE html>
@@ -81,17 +85,66 @@ foreach ($adat as $key => $bolt) {
 
                     foreach ($osszesitett_termek as $key => $value) {
 
+                        if ($value->kat != "Alapanyagok") {
+                            # code...
+
+
                     ?>
-                        <tr onclick="window.location.href='product.php?date=<?php echo $date; ?>&quantity=<?php echo $value->mennyiseg; ?>&termek_id=<?php echo $key; ?>'">
-                            <td>
-                                <p><?php echo $value->name; ?></p>
-                            </td>
-                            <td>
-                                <p><?php echo $value->mennyiseg; ?></p>
-                            </td>
-                        </tr>
+
+                            <tr onclick="window.location.href='product.php?date=<?php echo $date; ?>&quantity=<?php echo $value->mennyiseg; ?>&termek_id=<?php echo $key; ?>&kat_id=<?php echo $value->kat; ?>'">
+                                <td>
+                                    <p><?php echo $value->name; ?></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $value->mennyiseg; ?></p>
+                                </td>
+                            </tr>
                     <?php
+                        }
+                        else{         
+
+                            $anyagmenny = 0;
+
+                            foreach ($osszesitett_termek as $szamolas) {
+
+                                if ($szamolas->kat == "Alapanyagok") {
+                                    continue;
+                                }
+
+                                $query = "SELECT recept FROM termekek WHERE id = $szamolas->id";
+                                $query_do = mysqli_query($connection, $query);
+
+                                if ($row = mysqli_fetch_assoc($query_do)) {
+                                    
+                                    $recept_obj = json_decode($row['recept']);
+
+                                }
+
+                                $key = array_search($value->name, array_column($recept_obj, 'nev'));
+
+                                $anyagmenny += $recept_obj[$key]->mennyiseg * $szamolas->mennyiseg;
+
+
+                            }
+
+                            ?>
+                            
+                            <tr onclick="window.location.href='product.php?date=<?php echo $date; ?>&quantity=<?php echo $value->mennyiseg; ?>&termek_id=<?php echo $key; ?>&kat_id=<?php echo $value->kat; ?>'">
+                                <td>
+                                    <p><?php echo $value->name; ?></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $anyagmenny; ?></p>
+                                </td>
+                            </tr>
+                            
+                            
+                            
+                            <?php
+
+                        }
                     }
+
                     ?>
                 </tbody>
             </table>

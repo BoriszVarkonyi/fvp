@@ -1,9 +1,14 @@
 var selectedCategoryID = 0;
 var selectedProcuctCounter = 0;
 
+var cartList = document.getElementById("shopping-cart-list");
+
 function selectCategory(selectedCategory) {
 
-    selectedCategoryID = selectedCategory.id.slice(-1);
+    selectedCategoryID = selectedCategory.id;
+
+    console.log(selectedCategoryID);
+
     selectedProcuctCounter = 0;
 
     var noCategorySelectedText = document.getElementById("no-category-selected")
@@ -11,7 +16,7 @@ function selectCategory(selectedCategory) {
     console.log(selectedCategoryID);
 
     var allCategoryProducts = document.querySelectorAll(".category-products-listing");
-    var selectedCategoryProducts = document.getElementById("category-products-" + selectedCategoryID);
+    var selectedCategoryProducts = document.getElementById("l_" + selectedCategoryID);
 
 
     // Hiding all product listings and displaying only the selected
@@ -19,6 +24,8 @@ function selectCategory(selectedCategory) {
         allCategoryProducts[index].classList.add("hidden");
 
     }
+
+    console.log(selectedCategoryProducts)
 
     selectedCategoryProducts.classList.remove("hidden");
     noCategorySelectedText.classList.add("hidden")
@@ -41,36 +48,43 @@ function selectCategory(selectedCategory) {
 var categories = document.querySelectorAll(".category")
 
 
-document.onkeydown = (keyDownEvent) => {
+document.onkeyup = (keyDownEvent) => {
 
 
     if (keyDownEvent.key == "ArrowLeft") {
         selectCategory(categories[selectedCategoryID  - 2]);
     }
 
-    if (keyDownEvent.key == "ArrowRight") {
+    else if (keyDownEvent.key == "ArrowRight") {
         selectCategory(categories[selectedCategoryID]);
     }
 
-    if (keyDownEvent.key == "/") {
+    else if (keyDownEvent.key == "/") {
 
         selectGivenAmountInput();
     }
-    if (keyDownEvent.key == "*") {
+    else if (keyDownEvent.key == "*") {
 
         selectCategory(categories[0]);
     }
 
-    if (keyDownEvent.key == "ArrowDown") {
+    else if (keyDownEvent.key == "ArrowDown") {
         keyDownEvent.preventDefault();
 
         selectProduct("next")
     }
 
-    if (keyDownEvent.key == "ArrowUp") {
+    else if (keyDownEvent.key == "ArrowUp") {
         keyDownEvent.preventDefault();
 
         selectProduct("previous")
+    }
+
+    else {
+
+        var x = document.activeElement.value;
+        console.log(x);
+
     }
 }
 

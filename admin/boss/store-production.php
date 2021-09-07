@@ -31,12 +31,14 @@ if (isset($_POST['save'])) {
 
         $id = $row['id'];
         $nev = $row['nev'];
+        $kat = $row['kat_id'];
 
         $recept = json_decode($row['recept']);
 
         $termek = new stdClass();
         $termek->id = $id;
         $termek->nev = $nev;
+        $termek->kat = $kat;
         $termek->mennyiseg = $_POST[$id];
         $termek->bevett = 0;
         $termek->leszamolt = 0;

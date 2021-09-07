@@ -42,9 +42,6 @@
                         <th>
                             <p>KATEGÓRIA</p>
                         </th>
-                        <th>
-                            <p>ÁR</p>
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,7 +57,6 @@
                             $id = $row['id'];
                             $nev = $row['nev'];
                             $kat = $row['kat_id'];
-                            $ar = $row['ar'];
 
 
 
@@ -71,9 +67,6 @@
                                 </td>
                                 <td>
                                     <p><?php echo $kat ?></p>
-                                </td>
-                                <td>
-                                    <p><?php echo $ar ?> Ft</p>
                                 </td>
                             </tr>
 

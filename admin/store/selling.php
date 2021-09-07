@@ -1,5 +1,16 @@
+<?php include "../../includes/db.php" ?>
+<?php ob_start(); ?>
+<?php session_start(); ?>
+
+<?php
+
+$shop_id = $_GET["id"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +18,7 @@
     <link rel="stylesheet" href="/../css/admin-base-style.min.css">
     <title>Eladás</title>
 </head>
+
 <body class="no-nav">
     <header>
         <p>BOLT ∙ {BOLT NEVE}</p>
@@ -44,215 +56,89 @@
         </div>
         <div id="products-listing">
             <div id="categories">
-                <button class="category" id="category-1" onclick="selectCategory(this)">
-                    <p>Édes</p>
-                </button>
 
-                <button class="category" id="category-2" onclick="selectCategory(this)">
-                    <p>Sós</p>
-                </button>
+                <?php
 
-                <button class="category" id="category-3" onclick="selectCategory(this)">
-                    <p>Kenyérfélék</p>
-                </button>
+                $query = "SELECT * FROM kategoriak";
+                $query_do = mysqli_query($connection, $query);
+
+                while ($row = mysqli_fetch_assoc($query_do)) {
+
+                    $nev = $row['nev'];
+
+                    if ($nev == 'Alapanyagok') {
+                        continue;
+                    }
+
+                ?>
+
+                    <button class="category" id="<?php echo $nev; ?>" onclick="selectCategory(this)">
+                        <p><?php echo $nev; ?></p>
+                    </button>
+
+                <?php
+                }
+                ?>
             </div>
             <div id="products-wrapper">
                 <p id="no-category-selected">Válassz ki egy kategóriát!</p>
-                <div id="category-products-1" class="category-products-listing hidden">
-                    <p class="category-title">Édes</p>
-                    <div class="products-grid">
-                        <div class="product" id="product-1">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Mákosguba</p>
-                            </div>
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-2">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Édes</p>
-                            </div>
+                <?php
+                $first = 0;
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-3">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Csiga</p>
-                            </div>
+                $query = "SELECT * FROM `termekek` ORDER BY `kat_id`";
+                $query_do = mysqli_query($connection, $query);
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-4">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Kifli</p>
-                            </div>
+                $voltkat = '';
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-5">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Kifli</p>
-                            </div>
+                if (mysqli_num_rows($query_do) != 0) {
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-6">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Kifli</p>
-                            </div>
+                    while ($row = mysqli_fetch_assoc($query_do)) {
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="category-products-2" class="category-products-listing hidden">
-                    <p class="category-title">Sós</p>
-                    <div class="products-grid">
-                        <div class="product" id="product-7">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Kifli</p>
-                            </div>
+                        $id = $row['id'];
+                        $nev = $row['nev'];
+                        $kat = $row['kat_id'];
+                        $ar = json_decode($row['ar']);
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-8">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Sajt</p>
-                            </div>
+                        if ($kat == 'Alapanyagok') {
+                            continue;
+                        }
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-9">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Zsemle</p>
-                            </div>
+                        if ($voltkat != $kat) {
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-10">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Kifli</p>
-                            </div>
+                            if ($first != 0) {
+                                echo "</div></div>";
+                            }
+                ?>
+                            <div id="l_<?php echo $kat ?>" class="category-products-listing hidden">
+                                <p class="category-title">Édes</p>
+                                <div class="products-grid">
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-11">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Kifli</p>
-                            </div>
+                                <?php
+                            }
+                                ?>
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-12">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Kifli</p>
-                            </div>
+                                <div class="product" id="<?php echo $kat ?>">
+                                    <p class="price"><?php $key = array_search($shop_id, array_column($ar, 'id')); echo $ar[$key]->price . " Ft"; ?></p>
+                                    <div class="product-name">
+                                        <p><?php echo $nev ?></p>
+                                    </div>
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="category-products-3" class="category-products-listing hidden">
-                    <p class="category-title">Kenyérfélék</p>
-                    <div class="products-grid">
-                        <div class="product" id="product-13">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Sima</p>
-                            </div>
+                                    <div class="product-input">
+                                        <input type="number" class="product-input" name="" id="" placeholder="db">
+                                    </div>
+                                </div>
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-14">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Jó</p>
-                            </div>
+                        <?php
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-15">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Kovász</p>
-                            </div>
+                        $voltkat = $kat;
 
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
+                        $first++;
+                    }
+                }
+                        ?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product" id="product-16">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Kifli</p>
-                            </div>
-
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-17">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Kifli</p>
-                            </div>
-
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                        <div class="product" id="product-18">
-                            <p class="price">199 Ft</p>
-                            <div class="product-name">
-                                <p>Kifli</p>
-                            </div>
-
-                            <div class="product-input">
-                                <input type="number" class="product-input" name="" id="" placeholder="db">
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div id="shopping-cart">
@@ -282,4 +168,5 @@
     <script src="/../js/admin-main-script.js"></script>
     <script src="/../js/selling.js"></script>
 </body>
+
 </html>
