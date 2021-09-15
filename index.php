@@ -94,9 +94,7 @@
                             <h3>Kenyér</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
@@ -107,9 +105,7 @@
                             <h3>Kenyér</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
@@ -120,9 +116,7 @@
                             <h3>Kenyér</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
@@ -133,9 +127,7 @@
                             <h3>Kenyér</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
@@ -159,9 +151,7 @@
                             <h3>Kenyér</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
@@ -172,9 +162,7 @@
                             <h3>Kenyér</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
@@ -185,9 +173,7 @@
                             <h3>Kenyér</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
@@ -198,9 +184,7 @@
                             <h3>Kenyér</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
@@ -211,9 +195,7 @@
                             <h3>Kenyér</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
@@ -224,9 +206,7 @@
                             <h3>Kenyér</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
@@ -237,9 +217,7 @@
                             <h3>Kenyér</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
@@ -268,9 +246,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
@@ -349,9 +325,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}" loading="lazy">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
@@ -430,9 +404,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
@@ -511,9 +483,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
@@ -592,9 +562,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
@@ -673,9 +641,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
@@ -754,9 +720,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
@@ -835,9 +799,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
@@ -916,9 +878,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
@@ -997,9 +957,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
@@ -1078,9 +1036,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
@@ -1159,9 +1115,7 @@
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
                                 <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-                                <button>
-                                    <img src="/../assets/icons/zoom-in-white.svg" alt="Kép kinagyítása ikon" loading="lazy">
-                                </button>
+
                             </div>
                             <div class="section-item-details">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
