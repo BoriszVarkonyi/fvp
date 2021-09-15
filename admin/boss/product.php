@@ -253,6 +253,18 @@ if (isset($_POST['del_product'])) {
                     </div>
 
                     <!--ÁRAZÁS BOLTOKRA BONTVA-->
+                    <table class="fixed no-interaction" id="product-recipe">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <p>BOLT</p>
+                                </th>
+                                <th>
+                                    <p>ÁR</p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
                     <?php
 
@@ -269,9 +281,14 @@ if (isset($_POST['del_product'])) {
                         }
 
                     ?>
-
-                        <label for="product-price-<?php echo $shopid ?>"><?php echo $shopname ?> ár</label>
-                        <input type="number" value="<?php echo $qu = ($termek_id == 'new') ? '' : $ar[$key]->price ?>" name="price-<?php echo $shopid ?>" id="product-price-<?php echo $shopid ?>">
+                        <tr>
+                            <td>
+                                <p><?php echo $shopname ?></p>
+                            </td>
+                            <td>
+                                <p><input type="number" value="<?php echo $qu = ($termek_id == 'new') ? '' : $ar[$key]->price ?>" name="price-<?php echo $shopid ?>" id="product-price-<?php echo $shopid ?>"></p>
+                            </td>
+                        </tr>
 
                     <?php } ?>
 
@@ -346,7 +363,7 @@ if (isset($_POST['del_product'])) {
                                     </td>
                                     <td>
                                         <div>
-                                            <input type="float" value="<?php echo $qu = ($termek_id == 'new') ? 0 : $mennyiseg ?>" name="<?php echo $id ?>" id="">
+                                            <input type="number" class="wide" value="<?php echo $qu = ($termek_id == 'new') ? 0 : $mennyiseg ?>" name="<?php echo $id ?>" id="">
                                             <p><?php echo $mertekegyseg ?></p>
                                         </div>
                                     </td>
