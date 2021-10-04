@@ -63,7 +63,6 @@ function closeMobileNavigation() {
 //Gets window size
 window.addEventListener("resize", () => {
     windowSize();
-    countRows();
 });
 
 var visibleColumns = 0;
@@ -99,13 +98,83 @@ function windowSize() {
 
 windowSize();
 
+const categoryGrids = document.querySelectorAll("h2 + .content.grid");
+
+let categoryItemsAll = [];
+let categoryItemsShown = [];
+let categoryItemsHidden = [];
+let categoryShownRows = [];
+
+
+for (let i = 0; i < categoryGrids.length; i++) {
+
+    categoryItemsAll.push(categoryGrids[i].childElementCount);
+    categoryItemsShown.push(visibleColumns);
+
+    categoryItemsHidden.push(categoryItemsAll[i] - categoryItemsShown[i]);
+
+    if (categoryItemsHidden[i] > 0) {
+        categoryGrids[i].nextElementSibling.firstElementChild.firstElementChild.firstElementChild.innerText = categoryItemsHidden[i];
+    } else {
+        categoryGrids[i].nextElementSibling.firstElementChild.style.display = "none";
+    }
+
+    categoryShownRows.push(1);
+
+}
+
+console.log("categoryItemsAll" + categoryItemsAll)
+console.log("categoryItemsShown" + categoryItemsShown)
+
+function showMore(button, categoryIndex) {
+    var clickedCategoryGrid = categoryGrids[categoryIndex];
+
+    var noItemSpan = button.firstElementChild.firstElementChild;
+
+    var categoryIndexItems = clickedCategoryGrid.childElementCount;
+
+    console.log(clickedCategoryGrid)
+    console.log(categoryIndexItems)
+
+    if (categoryItemsHidden[categoryIndex] > 0 && (categoryItemsHidden[categoryIndex] - visibleColumns) > 0) {
+
+        categoryItemsHidden[categoryIndex] -= visibleColumns;
+
+        noItemSpan.innerText = categoryItemsHidden[categoryIndex];
+
+        clickedCategoryGrid.style.gridTemplateRows = "repeat(" + (categoryShownRows[categoryIndex] + 1) + ", 1fr)";
+
+        categoryShownRows[categoryIndex] += 1;
+
+        console.log("ezután marad");
+
+    }
+    else {
+        categoryItemsHidden[categoryIndex] -= visibleColumns;
+
+        clickedCategoryGrid.style.gridTemplateRows = "repeat(" + (categoryShownRows[categoryIndex] + 1) + ", 1fr)";
+
+        categoryShownRows[categoryIndex] += 1;
+
+        clickedCategoryGrid.nextElementSibling.firstElementChild.style.display = "none";
+
+        console.log("ezután elfogy");
+    }
+
+}
+
+
 /* Show more items system */
 
+
+/*
 var category = {
     numberOfItems: 0,
     numberOfAvailableRows: 0,
     numberOfVisibleRows: 0
 };
+
+
 
 const categoryGrids = document.querySelectorAll("h2 + .content.grid");
 let categoryArray = [];
@@ -113,21 +182,22 @@ let categoryArray = [];
 
 for (let i = 0; i < categoryGrids.length; i++) {
 
-    var category = new Object();
+    var newCategory = new category();
 
-    category.numberOfItems = categoryGrids[i].childElementCount;
+    category.numberOfItems = 1;
     console.log(i + " c: " + category.numberOfItems)
 
-    categoryArray.push(category)
+    categoryArray.push(newCategory)
 
 }
 
 function countRows() {
     for (let i = 0; i < categoryGrids.length; i++) {
 
-        categoryGrids[i].numberOfAvailableRows = Math.floor(categoryGrids[i].numberOfItems / visibleColumns);
+        categoryGrids[i].numberOfAvailableRows = categoryGrids[i].numberOfItems / visibleColumns;
 
         console.log("numberOfAvailableRows:" + categoryGrids[i].numberOfAvailableRows)
+        console.log("numberOfItems:" + categoryGrids[i].numberOfItems)
 
     }
 }
@@ -138,3 +208,5 @@ function showMore() {
 
 
 }
+
+*/

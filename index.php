@@ -49,8 +49,14 @@
                 <p class="show-off-text">PÉKSÉG</p>
 
                 <div class="show-off-data">
-                    <p><span>12</span> Üzlet</p>
-                    <p><span>157</span> Egyedi Termék</p>
+                    <div>
+                        <p>12</p>
+                        <p>Üzlet</p>
+                    </div>
+                    <div>
+                        <p>152</p>
+                        <p>Egyedi Termék</p>
+                    </div>
                 </div>
 
                 <!--
@@ -137,7 +143,7 @@
                     </div>
 
                     <div class="content-footer">
-                        <button aria-label="Többi megjelenítése" onclick="showMore(this)">
+                        <button aria-label="Többi megjelenítése" onclick="showMore(this, 0)">
                             <p>Többi <span>{7}</span> elem megjelelenítése</p>
                             <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon" loading="lazy">
                         </button>
@@ -224,10 +230,76 @@
                             </div>
                         </div>
 
+                        <div class="section-item">
+                            <h3>Kenyér</h3>
+                            <div class="section-image-wrapper">
+                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+
+                            </div>
+                            <div class="section-item-details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
+                            </div>
+                        </div>
+
+                        <div class="section-item">
+                            <h3>Kenyér</h3>
+                            <div class="section-image-wrapper">
+                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+
+                            </div>
+                            <div class="section-item-details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
+                            </div>
+                        </div>
+
+                        <div class="section-item">
+                            <h3>Kenyér</h3>
+                            <div class="section-image-wrapper">
+                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+
+                            </div>
+                            <div class="section-item-details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
+                            </div>
+                        </div>
+
+                        <div class="section-item">
+                            <h3>Kenyér</h3>
+                            <div class="section-image-wrapper">
+                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+
+                            </div>
+                            <div class="section-item-details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
+                            </div>
+                        </div>
+
+                        <div class="section-item">
+                            <h3>Kenyér</h3>
+                            <div class="section-image-wrapper">
+                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+
+                            </div>
+                            <div class="section-item-details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
+                            </div>
+                        </div>
+
+                        <div class="section-item">
+                            <h3>Kenyér</h3>
+                            <div class="section-image-wrapper">
+                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+
+                            </div>
+                            <div class="section-item-details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="content-footer">
-                        <button aria-label="Többi megjelenítése" onclick="showMore(this)">
+                        <button aria-label="Többi megjelenítése" onclick="showMore(this, 1)">
                             <p>Többi <span>{7}</span> elem megjelelenítése</p>
                             <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon" loading="lazy">
                         </button>
@@ -241,7 +313,7 @@
                     <div class="content-header">
                         <h1>Üzleteink</h1>
                     </div>
-                    <div class="content grid">
+                    <div class="content grid stores">
                         <div class="section-item">
                             <h3>Magyon jó fajta és finomn nagyon jó</h3>
                             <div class="section-image-wrapper">
