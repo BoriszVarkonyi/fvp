@@ -455,7 +455,7 @@ h3 {
 	line-height: 1.2;
 	font-family: var(--bold);
 	color: var(--c-black);
-	height: calc(var(--fs-xxm) * 2 * 1.2);
+	min-height: calc(var(--fs-xxm) * 2 * 1.2);
 	display: flex;
 	align-items: center;
 }
@@ -984,7 +984,7 @@ main {
 section {
 	width: 100%;
 	box-sizing: border-box;
-	padding: 60px 0 40px;
+	padding: 40px 0 60px;
 	scroll-margin-top: 50px;
 	/*
 	background: url(/../assets/images/background-pattern.svg);

@@ -168,7 +168,7 @@
 
                         <div class="content-footer">
                             <button aria-label="Többi megjelenítése" onclick="showMore(this, 0)">
-                                <p>Többi <span>{7}</span> elem megjelelenítése</p>
+                                <p>Többi <span></span> elem megjelelenítése</p>
                                 <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon" loading="lazy">
                             </button>
                         </div>
@@ -209,7 +209,7 @@
 
 
                                             if ($item_pic_path == "") {
-                                                $item_pic_path = "images/kenyer_kitoltes.jpg";//IDE PAKOLD BE A HELYET KRIS PLS_---------------------------
+                                                $item_pic_path = "images/product-placeholder.svg";//IDE PAKOLD BE A HELYET KRIS PLS_---------------------------
                                             }
 
 
@@ -245,7 +245,7 @@
                                     </div>
                                     <div class="content-footer">
                                         <button aria-label="Többi megjelenítése" onclick="showMore(this, <?php echo $cat_C ?>)"><!-- sorolva hany darab kategoria kell 0,1,2,3,4,5 -->
-                                            <p>Többi <span>{7}</span> elem megjelelenítése</p>
+                                            <p>Többi <span></span> elem megjelelenítése</p>
                                             <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon" loading="lazy">
                                         </button>
                                     </div>
@@ -282,7 +282,7 @@
                                 $store_leiras = $row['leiras'];
 
                                 if ($store_kep_path == "") {
-                                    $store_kep_path = "images/kenyer_kitoltes.jpg";//IDE PAKOLD BE A HELYET KRIS PLS_---------------------------
+                                    $store_kep_path = "images/product-placeholder.svg";//IDE PAKOLD BE A HELYET KRIS PLS_---------------------------
                                 }
 
                                 $json_nyitv = json_decode($store_nyitv);
