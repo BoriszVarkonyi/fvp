@@ -72,7 +72,7 @@
                     if (!$num_rows_termekek = mysqli_num_rows($do_get_termekek)){
                         echo mysqli_error($connection);
                     }
-                
+
                 ?>
                 <div class="show-off-data">
                     <div>
@@ -114,28 +114,17 @@
 
             <section class="light" id="products">
                 <div class="content-wrapper">
-                    
+
                     <div class="content-header">
                         <h1>Termékeink</h1>
                     </div>
-<<<<<<< HEAD
-
-                    <h2>Kiemelt Termékek</h2>
-
-                    <div class="content grid">
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-=======
                     <?php
                         $qry_kiemelt_termk = "SELECT * FROM termekek WHERE weben_van = 2";
                         $do_kiemelt_termk = mysqli_query($connection, $qry_kiemelt_termk);
                         if ($num_rows = mysqli_num_rows($do_kiemelt_termk) != 0) {
                     ?>
                     <h2>Kiemelt Termékek</h2>
-                    <?php 
+                    <?php
                         echo mysqli_num_rows($do_kiemelt_termk);
                         while ($row_item = mysqli_fetch_assoc($do_kiemelt_termk)) {
                             $item_name = $row_item['nev'];
@@ -156,7 +145,7 @@
                             $item_string_alapanyagok = substr($item_string_alapanyagok, 0, -2);
                     ?>
 
-                    
+
 
                         <div class="content grid">
 
@@ -176,7 +165,6 @@
                         </div>
 
                         <?php } }?>
->>>>>>> 7c7ad40e3acedd8ab02bc33d5f859d41f3873e2d
 
                         <div class="content-footer">
                             <button aria-label="Többi megjelenítése" onclick="showMore(this, 0)">
@@ -184,24 +172,14 @@
                                 <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon" loading="lazy">
                             </button>
                         </div>
-<<<<<<< HEAD
-                    </div>
-
-                    <div class="content-footer">
-                        <button aria-label="Többi megjelenítése" onclick="showMore(this, 0)">
-                            <p>Többi <span>{7}</span> elem megjelelenítése</p>
-                            <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon" loading="lazy">
-                        </button>
-                    </div>
-=======
 
 
-                    <?php 
+                    <?php
 
                         //get categories
                         $qry_get_categories = "SELECT * FROM kategoriak";
                         $do_get_categories = mysqli_query($connection, $qry_get_categories);
-                        
+
                         $cat_C = 1;
                         while ($row = mysqli_fetch_assoc($do_get_categories)) {
                             $cat_name = $row['nev'];
@@ -218,7 +196,7 @@
                             if ($num_rows = mysqli_num_rows($do_get_items)) {
 
                                 if ($num_rows != 0) {
-                        
+
                     ?>
                                     <h2><?php echo $cat_name ?></h2>
 
@@ -246,7 +224,7 @@
                                                 }
                                             }
                                             $item_string_alapanyagok = substr($item_string_alapanyagok, 0, -2);
-                                        
+
                                         ?>
                                             <div class="section-item">
                                                 <h3><?php echo $item_name ?></h3>
@@ -272,169 +250,14 @@
                                         </button>
                                     </div>
 
-                    <?php 
+                    <?php
                             }
                         }
-                        
-                        $cat_C++; 
+
+                        $cat_C++;
                     } ?>
->>>>>>> 7c7ad40e3acedd8ab02bc33d5f859d41f3873e2d
 
 
-<<<<<<< HEAD
-                    <div class="content grid">
-
-                        <div class="section-item highlight">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../assets/images/turos_pogi.jpg" alt="{Cím}" loading="lazy">
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../assets/images/turos_pogi.jpg" alt="{Cím}" loading="lazy">
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="content-footer">
-                        <button aria-label="Többi megjelenítése" onclick="showMore(this, 1)">
-                            <p>Többi <span>{7}</span> elem megjelelenítése</p>
-                            <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon" loading="lazy">
-                        </button>
-                    </div>
-=======
->>>>>>> 7c7ad40e3acedd8ab02bc33d5f859d41f3873e2d
 
                 </div>
             </section>
@@ -446,7 +269,7 @@
                         <h1>Üzleteink</h1>
                     </div>
                     <div class="content grid stores">
-                        <?php 
+                        <?php
                             $qry_get_üzletek = "SELECT * FROM boltok";
                             $do_get_üzletek = mysqli_query($connection, $qry_get_üzletek);
 
@@ -486,7 +309,7 @@
                                                 $nap_name = $napi_nyitv -> nev;
                                                 $nyitva = $napi_nyitv -> nyitas;
                                                 $zarva = $napi_nyitv -> zaras;
-                                        
+
                                             ?>
                                                 <tr>
                                                     <td>
