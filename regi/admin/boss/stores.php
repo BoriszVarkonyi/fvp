@@ -1,6 +1,11 @@
 <?php include "../../includes/db.php" ?>
+<?php include "../../includes/functions.php" ?>
 <?php ob_start(); ?>
 <?php session_start(); ?>
+
+<?php
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,10 +15,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/../css/admin-base-style.min.css">
-    <title>Termékek</title>
+    <title>Üzletek</title>
 </head>
 
-<body class="product">
+<body class="store">
     <header>
         <p>FŐNÖK</p>
         <button id="logout-button">Kilépés</button>
@@ -26,28 +31,29 @@
     </nav>
     <main>
         <div id="main-top">
-            <p id="page-title">Termékek</p>
+            <p id="page-title">Üzletek</p>
             <div id="page-buttons">
-                <a class="page-button primary" href="product.php?id=new">Új termék</a>
-                <a class="page-button secondary" href="categories.php">Kategóriák</a>
+                <a class="page-button primary" href="store.php?id=new">Új üzlet</a>
             </div>
         </div>
-        <div id="main-content">
+        <form id="main-content">
             <table>
                 <thead>
                     <tr>
                         <th>
-                            <p>TERMÉK</p>
+                            <p>ÜZLET</p>
                         </th>
                         <th>
-                            <p>KATEGÓRIA</p>
+                            <p>SZTÁTUSZ</p>
                         </th>
+                        <th class="square"></th>
                     </tr>
                 </thead>
                 <tbody>
+
                     <?php
 
-                    $query = "SELECT * FROM `termekek` ORDER BY `kat_id`";
+                    $query = "SELECT * FROM `boltok`";
                     $query_do = mysqli_query($connection, $query);
 
                     if (mysqli_num_rows($query_do) != 0) {
@@ -56,29 +62,29 @@
 
                             $id = $row['id'];
                             $nev = $row['nev'];
-                            $kat = $row['kat_id'];
-
-
+                            $status = statusConverter($row['statusz']);
 
                     ?>
-                            <tr onclick="window.location.href='product.php?id=<?php echo $id; ?>'">
-                                <td>
-                                    <p><?php echo $nev ?></p>
+
+                            <tr>
+                                <td onclick="window.location.href='store-dashboard.php?id=<?php echo $id; ?>date=today'">
+                                    <p><?php echo $nev; ?></p>
                                 </td>
-                                <td>
-                                    <p><?php echo $kat ?></p>
+                                <td onclick="window.location.href='store-dashboard.php?id=<?php echo $id; ?>date=today'">
+                                    <p><?php echo $status; ?></p>
+                                </td>
+                                <td class="square">
+                                    <a href="store.php?id=<?php echo $id; ?>"><img src="/../assets/icons/edit-black.svg"></a>
                                 </td>
                             </tr>
 
                     <?php
-
                         }
                     }
-
                     ?>
                 </tbody>
             </table>
-        </div>
+        </form>
     </main>
     <script src="/../js/admin-main-script.js"></script>
 </body>

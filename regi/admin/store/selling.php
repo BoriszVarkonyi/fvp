@@ -111,14 +111,14 @@ $shop_id = $_GET["id"];
                             }
                 ?>
                             <div id="l_<?php echo $kat ?>" class="category-products-listing hidden">
-                                <p class="category-title"><?php echo $kat ?></p>
+                                <p class="category-title">Édes</p>
                                 <div class="products-grid">
 
                                 <?php
                             }
                                 ?>
 
-                                <div class="product" id="<?php echo $kat ?>" productid="<?php echo $id ?>">
+                                <div class="product" id="<?php echo $kat ?>">
                                     <p class="price"><?php $key = array_search($shop_id, array_column($ar, 'id')); echo $ar[$key]->price . " Ft"; ?></p>
                                     <div class="product-name">
                                         <p><?php echo $nev ?></p>
@@ -147,7 +147,7 @@ $shop_id = $_GET["id"];
             <div id="shopping-cart-list">
 
 
-                <div class="shopping-cart-item" id="9999">
+                <div class="shopping-cart-item">
                     <div>
                         <p class="cart-item-name">Kifli</p>
                         <p class="cart-item-quantity"><span>1</span> db</p>
