@@ -1,3 +1,9 @@
+<?php include "includes/db.php" ?>
+<?php include "includes/functions.php" ?>
+<?php ob_start(); ?>
+<?php session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +14,7 @@
     <title>Farkas Vadkovászos Pékség</title>
     <meta name="description" content="{Ide kéne egy leírás}">
 </head>
+
 <body>
     <header>
         <nav id="desktop-navigation">
@@ -48,13 +55,32 @@
                 <p class="show-off-text">VADKOVÁSZOS</p>
                 <p class="show-off-text">PÉKSÉG</p>
 
+                <?php
+
+                    //get boltok szama for frontpage counter
+                    $qry_get_shops = "SELECT `nev` FROM boltok";
+                    $do_get_shops = mysqli_query($connection, $qry_get_shops);
+
+                    if (!$num_rows_boltok = mysqli_num_rows($do_get_shops)) {
+                        echo mysqli_error($connection);
+                    }
+
+                    //get egyedi termekek szama ami weben_van for frontpage counter
+                    $qry_get_termekek = "SELECT `nev` FROM `termekek` WHERE `weben_van` = 1";
+                    $do_get_termekek = mysqli_query($connection, $qry_get_termekek);
+
+                    if (!$num_rows_termekek = mysqli_num_rows($do_get_termekek)){
+                        echo mysqli_error($connection);
+                    }
+                
+                ?>
                 <div class="show-off-data">
                     <div>
-                        <p>12</p>
+                        <p><?php echo $num_rows_boltok ?></p>
                         <p>Üzlet</p>
                     </div>
                     <div>
-                        <p>152</p>
+                        <p><?php echo $num_rows_termekek ?></p>
                         <p>Egyedi Termék</p>
                     </div>
                 </div>
@@ -88,225 +114,154 @@
 
             <section class="light" id="products">
                 <div class="content-wrapper">
+                    
                     <div class="content-header">
                         <h1>Termékeink</h1>
                     </div>
+                    <?php
+                        $qry_kiemelt_termk = "SELECT * FROM termekek WHERE weben_van = 2";
+                        $do_kiemelt_termk = mysqli_query($connection, $qry_kiemelt_termk);
+                        if ($num_rows = mysqli_num_rows($do_kiemelt_termk) != 0) {
+                    ?>
+                    <h2>Kiemelt Termékek</h2>
+                    <?php 
+                        echo mysqli_num_rows($do_kiemelt_termk);
+                        while ($row_item = mysqli_fetch_assoc($do_kiemelt_termk)) {
+                            $item_name = $row_item['nev'];
+                            $item_pic_path = $row_item['kep'];
+                            if ($item_pic_path == "") {
+                                $item_pic_path = "images/image-palceholder.svg";
+                            }
+                            $item_string_recept = $row_item['recept'];
+                            $item_json_recept = json_decode($item_string_recept);
+                            $item_leiras = $row_item['leiras'];
+                            $item_string_alapanyagok = "";
+                            //get alapanyagok
+                            foreach ($item_json_recept as $recept_obj) {
+                                if ($recept_obj -> mennyiseg > 0) {
+                                    $item_string_alapanyagok .= $recept_obj -> nev . ", ";
+                                }
+                            }
+                            $item_string_alapanyagok = substr($item_string_alapanyagok, 0, -2);
+                    ?>
 
-                    <h2>Kenyerek</h2>
+                    
 
-                    <div class="content grid">
+                        <div class="content grid">
 
-                        <div class="section-item highlight">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+                            <div class="section-item">
+                                <h3><?php echo $item_name ?></h3>
+                                <div class="section-image-wrapper">
+                                    <img src="/../admin/boss/<?php echo $item_pic_path ?>" alt="{Cím}" loading="lazy">
 
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
+                                </div>
+                                <div class="section-item-details">
+                                    <p><?php echo $item_leiras ?></p>
+                                </div>
+                                <div class="section-item-details">
+                                    <p><?php echo $item_string_alapanyagok?><p>
+                                </div>
                             </div>
                         </div>
 
-                    </div>
+                        <?php } }?>
 
-                    <div class="content-footer">
-                        <button aria-label="Többi megjelenítése" onclick="showMore(this, 0)">
-                            <p>Többi <span>{7}</span> elem megjelelenítése</p>
-                            <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon" loading="lazy">
-                        </button>
-                    </div>
-
-                    <h2>Édesek</h2>
-
-                    <div class="content grid">
-
-                        <div class="section-item highlight">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
+                        <div class="content-footer">
+                            <button aria-label="Többi megjelenítése" onclick="showMore(this, 0)">
+                                <p>Többi <span>{7}</span> elem megjelelenítése</p>
+                                <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon" loading="lazy">
+                            </button>
                         </div>
 
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
 
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
+                    <?php 
 
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+                        //get categories
+                        $qry_get_categories = "SELECT * FROM kategoriak";
+                        $do_get_categories = mysqli_query($connection, $qry_get_categories);
+                        
+                        $cat_C = 1;
+                        while ($row = mysqli_fetch_assoc($do_get_categories)) {
+                            $cat_name = $row['nev'];
+                            $cat_id = $row['id'];
 
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
+                            if ($cat_name == "Alapanyagok") {
+                                continue;
+                            }
 
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+                            //get intems in category
+                            $qry_get_items = "SELECT * FROM termekek WHERE kat_id = '$cat_name' AND weben_van = 1";
+                            $do_get_items = mysqli_query($connection, $qry_get_items);
 
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
+                            if ($num_rows = mysqli_num_rows($do_get_items)) {
 
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+                                if ($num_rows != 0) {
+                        
+                    ?>
+                                    <h2><?php echo $cat_name ?></h2>
 
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
+                                    <div class="content grid">
 
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+                                        <?php
+                                        while ($row_item = mysqli_fetch_assoc($do_get_items)) {
+                                            $item_name = $row_item['nev'];
+                                            $item_pic_path = $row_item['kep'];
 
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
 
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+                                            if ($item_pic_path == "") {
+                                                $item_pic_path = "images/kenyer_kitoltes.jpg";//IDE PAKOLD BE A HELYET KRIS PLS_---------------------------
+                                            }
 
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
 
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+                                            $item_string_recept = $row_item['recept'];
+                                            $item_json_recept = json_decode($item_string_recept);
+                                            $item_leiras = $row_item['leiras'];
+                                            $item_string_alapanyagok = "";
+                                            //get alapanyagok
+                                            foreach ($item_json_recept as $recept_obj) {
+                                                if ($recept_obj -> mennyiseg > 0) {
+                                                    $item_string_alapanyagok .= $recept_obj -> nev . ", ";
+                                                }
+                                            }
+                                            $item_string_alapanyagok = substr($item_string_alapanyagok, 0, -2);
+                                        
+                                        ?>
+                                            <div class="section-item">
+                                                <h3><?php echo $item_name ?></h3>
+                                                <div class="section-image-wrapper">
+                                                    <img src="/../admin/boss/<?php echo $item_pic_path ?>" alt="{Cím}" loading="lazy">
 
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
+                                                </div>
+                                                <div class="section-item-details">
+                                                    <p><?php echo $item_leiras?></p>
+                                                </div>
+                                                <div class="section-item-details">
+                                                    <p><?php echo $item_string_alapanyagok?></p>
+                                                </div>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="content-footer">
+                                        <button aria-label="Többi megjelenítése" onclick="showMore(this, <?php echo $cat_C ?>)"><!-- sorolva hany darab kategoria kell 0,1,2,3,4,5 -->
+                                            <p>Többi <span>{7}</span> elem megjelelenítése</p>
+                                            <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon" loading="lazy">
+                                        </button>
+                                    </div>
 
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
+                    <?php 
+                            }
+                        }
+                        
+                        $cat_C++; 
+                    } ?>
 
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
 
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                        <div class="section-item">
-                            <h3>Kenyér</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/products/1.jpg" alt="{Cím}" loading="lazy">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quia dolorum nobis odio error rerum commodi incidunt saepe illo! Obcaecati quasi corrupti quis quos est. Vero a ad itaque deleniti.</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="content-footer">
-                        <button aria-label="Többi megjelenítése" onclick="showMore(this, 1)">
-                            <p>Többi <span>{7}</span> elem megjelelenítése</p>
-                            <img src="/../assets/icons/visibility-red.svg" alt="További megjelenítése ikon" loading="lazy">
-                        </button>
-                    </div>
 
                 </div>
             </section>
+
 
             <section class="medium" id="stores">
                 <div class="content-wrapper">
@@ -314,955 +269,64 @@
                         <h1>Üzleteink</h1>
                     </div>
                     <div class="content grid stores">
+                        <?php 
+                            $qry_get_üzletek = "SELECT * FROM boltok";
+                            $do_get_üzletek = mysqli_query($connection, $qry_get_üzletek);
+
+                            while ($row = mysqli_fetch_assoc($do_get_üzletek)) {
+
+                                $store_name = $row['nev'];
+                                $store_nyitv = $row['nyitvatartas'];
+                                $store_cim = $row['cim'];
+                                $store_kep_path = $row['kep'];
+                                $store_leiras = $row['leiras'];
+
+                                if ($store_kep_path == "") {
+                                    $store_kep_path = "images/kenyer_kitoltes.jpg";//IDE PAKOLD BE A HELYET KRIS PLS_---------------------------
+                                }
+
+                                $json_nyitv = json_decode($store_nyitv);
+
+                        ?>
                         <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
+                            <h3><?php echo $store_name ?></h3>
                             <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
+                                <img src="/../admin/boss/<?php echo $store_kep_path ?>" alt="{Cím}">
 
                             </div>
                             <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
+                                <p><?php echo $store_leiras ?></p>
                                 <p>
                                     <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
+                                    <?php echo $store_cim ?>
                                 </p>
                                 <em>Nyitvatartás</em>
                                 <table>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}" loading="lazy">
+                                        <?php
+                                            foreach ($json_nyitv as $napi_nyitv) {
 
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
-                                <p>
-                                    <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
-                                </p>
-                                <em>Nyitvatartás</em>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
+                                                $nap_name = $napi_nyitv -> nev;
+                                                $nyitva = $napi_nyitv -> nyitas;
+                                                $zarva = $napi_nyitv -> zaras;
+                                        
+                                            ?>
+                                                <tr>
+                                                    <td>
+                                                        <p><?php echo $nap_name ?></p>
+                                                    </td>
+                                                    <td>
+                                                        <p><?php echo $nyitva . " - " . $zarva ?></p>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                        }
+                                         ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
-                                <p>
-                                    <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
-                                </p>
-                                <em>Nyitvatartás</em>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
-                                <p>
-                                    <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
-                                </p>
-                                <em>Nyitvatartás</em>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
-                                <p>
-                                    <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
-                                </p>
-                                <em>Nyitvatartás</em>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
-                                <p>
-                                    <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
-                                </p>
-                                <em>Nyitvatartás</em>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
-                                <p>
-                                    <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
-                                </p>
-                                <em>Nyitvatartás</em>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
-                                <p>
-                                    <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
-                                </p>
-                                <em>Nyitvatartás</em>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
-                                <p>
-                                    <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
-                                </p>
-                                <em>Nyitvatartás</em>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
-                                <p>
-                                    <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
-                                </p>
-                                <em>Nyitvatartás</em>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
-                                <p>
-                                    <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
-                                </p>
-                                <em>Nyitvatartás</em>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="section-item">
-                            <h3>Magyon jó fajta és finomn nagyon jó</h3>
-                            <div class="section-image-wrapper">
-                                <img src="/../admin/boss/images/stores/1.jpg" alt="{Cím}">
-
-                            </div>
-                            <div class="section-item-details">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit natus ad rerum veritatis unde nihil. Aliquid eius repellat placeat quaerat aut amet perspiciatis libero mollitia.</p>
-                                <p>
-                                    <b>Cím: </b>
-                                    1142 Budapest, Korong utca 211-213
-                                </p>
-                                <p>
-                                    <b>Tel.: </b>
-                                    +36 70 255 22 77
-                                </p>
-                                <em>Nyitvatartás</em>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>Hétfő</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Kedd</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szerda</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Csütörtök</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Péntek</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Szombat</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Vasárnap</p>
-                                            </td>
-                                            <td>
-                                                <p>11:00 - 15:00</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                        <?php } ?>
                 </div>
             </section>
 
@@ -1272,9 +336,9 @@
                         <h1>Elérhetőségeink</h1>
                     </div>
                     <div class="content text-extended">
-                        <p>Üzem és Iroda: <span>Nagyon jó hely, sok páncélos kocsi utca 4</span></p>
+                        <p>Üzem és Iroda: <span>Fehér út 1</span></p>
                         <p>Telefonszám: <span>+36 70 123 5678</span></p>
-                        <p>E-mail: <span>email.cim@email.com</span></p>
+                        <p>E-mail: <span>delisbistro@gmail.com</span></p>
                     </div>
                 </div>
             </section>
