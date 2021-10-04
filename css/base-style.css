@@ -455,6 +455,9 @@ h3 {
 	line-height: 1.2;
 	font-family: var(--bold);
 	color: var(--c-black);
+	height: calc(var(--fs-xxm) * 2 * 1.2);
+	display: flex;
+	align-items: center;
 }
 
 em {
@@ -759,14 +762,24 @@ main {
 	background: var(--c-primary-dark);
 }
 
-.show-off-data p:nth-child(1) {
+.show-off-data div:first-child p:nth-child(1) {
 	-webkit-animation-delay: .6s !important;
 	animation-delay: .6s !important;
 }
 
-.show-off-data p:nth-child(2) {
+.show-off-data div:first-child p:nth-child(2) {
 	-webkit-animation-delay: .9s !important;
 	animation-delay: .9s !important;
+}
+
+.show-off-data div:last-child p:nth-child(1) {
+	-webkit-animation-delay: .66s !important;
+	animation-delay: .66s !important;
+}
+
+.show-off-data div:last-child p:nth-child(2) {
+	-webkit-animation-delay: .69s !important;
+	animation-delay: .69s !important;
 }
 
 @-webkit-keyframes slideInFromRight {
@@ -1039,7 +1052,7 @@ section.dark {
 	position: relative;
 	width: 100%;
 	border-radius: 5px;
-	margin-top: 5px;
+	/*margin-top: 5px;*/
 	transition: ease-in-out .15s;
 }
 
