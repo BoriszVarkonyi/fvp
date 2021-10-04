@@ -236,10 +236,14 @@ input::-webkit-inner-spin-button {
   	margin: 0;
 }
 
-input[type="number"], input[type="float"] {
+input[type="number"] {
 	width: 90px;
     text-align: center;
     padding: 0 !important;
+}
+
+input[type="number"].wide {
+	width: 150px !important;
 }
 
 table input[type="number"] {
