@@ -2,7 +2,6 @@ var selectedCategoryID = 0;
 var selectedProcuctCounter = 0;
 
 var cartList = document.getElementById("shopping-cart-list");
-var cartItems = document.querySelectorAll(".shopping-cart-item");
 
 function selectCategory(selectedCategory) {
 
@@ -83,55 +82,10 @@ document.onkeyup = (keyDownEvent) => {
 
     else {
 
-        var x = document.activeElement;
-        activeProduct = x.parentNode.parentNode;
-        console.log(activeProduct);
-        activeId = x.id;
-
-        var idList = [];
-
-        for (const iterator of cartItems) {
-            
-            console.log(iterator);
-            idList.push(iterator.id);
-
-        }
-
-        if(!idList.includes(activeId) && x.value != 0){
-
-            quantity = x.value;
-
-            oneprice = activeProduct.querySelector(".price").innerHTML
-            activeName = activeProduct.querySelector(".product-name").innerHTML;
-
-            nameToWrite = activeName.replace("<p>", "")
-            nameToWrite = activeName.replace("</p>", "")
-
-            var res = oneprice.replace(/\D/g, "");
-
-            price = res * quantity;
-
-            console.log(price);
-
-            cartList.innerHTML += newCartItem(0,nameToWrite,quantity,price);
-
-        }
-
+        var x = document.activeElement.value;
+        console.log(x);
 
     }
-}
-
-function newCartItem(id, name, quantity, price){
-
-    var itemHtml = "<div class='shopping-cart-item' id='" + id + "'>";
-    itemHtml +=         "<div><p class='cart-item-name'>" + name + "</p>"
-    itemHtml +=             "<p class='cart-item-quantity'><span>" + quantity + "</span>db</p>"
-    itemHtml +=             "<p class='cart-item-price'>" + price + " Ft</p>"
-    itemHtml +=         "</div>"
-    itemHtml +=     "</div>"
-
-    return itemHtml;
-
 }
 
 function selectGivenAmountInput() {
